@@ -583,21 +583,17 @@
 
 
                         <div class="article-style">
-                            <p>Zero-shot Learning is a machine learning technique that allows categorizing unseen objects
-                                without labeled instances. This work proposes a new approach of zero-shot learning for 3D object
-                                classification using common sense knowledge graphs. The proposed approach utilizes graph convolutional
-                                networks to build class representations and captures the knowledge within the graph. A generalized zero-
-                                shot learning framework is introduced that combines the embedding and feature generation-based model.
-                                The method includes a contrastive embedding that enables the use of instance-wise supervision to improve
-                                generalized zero-shot learning performance. The use of explicit knowledge or knowledge graphs provides
-                                an unexplored and alternative paradigm for zero-shot learning in 3D object classification. The algorithm
-                                utilizes self-supervised contrastive learning to enforce image-text correspondence and relational reasoning
-                                to extract knowledge from external sources. The effectiveness of the proposed approach has been
-                                demonstrated through experiments conducted on four state-of-the-art on all 3D datasets for both inductive
-                                zero-shot learning (ZSL) and inductive generalized zero-shot learning (GZSL). We have also proposed
-                                strong baselines for this task, which were outperformed by our method. The introduction of the knowledge
-                                graph and contrastive module have been shown to be effective in enhancing the performance of our
-                                approach.</p>
+                            <p>Zero-shot learning (ZSL) has emerged as a promising approach to categorizing unseen objects without labeled instances by leveraging external knowledge sources. 
+                            However, in the domain of 3D object recognition, these sources often contain irrelevant information that hinders accurate object representation. Moreover, generalized 
+                            zero-shot learning (GZSL) faces persistent challenges with a bias towards seen classes. To address these issues, we propose two main contributions: First, we introduce
+                            a novel multimodal embedding framework that enhances the quality of semantic information used in 3D object recognition. This framework aligns visual data from 2D images 
+                            of 3D objects with graph-based semantic information from knowledge graphs and jointly learns embeddings from different modalities via an attention-based fusion module. 
+                            These improved alignments and refined knowledge enable us to generate more accurate and discriminative attribute descriptions for each 3D object class. Second, to overcome 
+                            the bias towards seen classes in GZSL, we propose a semi-supervised contrastive module combined with a generative adversarial network (GAN). This module integrates 
+                            instance-level contrastive embedding and supervision, enhancing feature-level representations of unseen 3D object classes. Our approach improves generalization in GZSL 
+                            scenarios, addressing the long-standing challenge of bias towards seen classes. We conduct extensive experiments on four state-of-the-art 3D object recognition datasets 
+                            and evaluate performance in both inductive ZSL and GZSL tasks. The experimental results demonstrate the effectiveness of our method, achieving a 3\% increase in the harmonic 
+                            mean metric on the ModelNet40 dataset compared to the strongest baseline, 3DGenZ, and significant improvements over other state-of-the-art models.</p>
                         </div>
 
                         <div class="project-card-tags">
