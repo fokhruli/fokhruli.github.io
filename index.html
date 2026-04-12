@@ -1,779 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Md Fokhrul Islam — PhD Student &amp; RA at University of Virginia. Research in geometric representation learning, multi-modal learning, and healthcare AI.">
+  <meta name="description" content="Md Fokhrul Islam — PhD Student & RA at University of Virginia.">
   <title>Md Fokhrul Islam</title>
+  <link rel="icon" type="image/png" href="/images/icon-48x48.png">
+  <link rel="manifest" href="/index.webmanifest">
 
-  <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <!-- Academicons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.3/css/academicons.min.css">
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    /* ─── Base ─────────────────────────────────────────────────────────── */
-    :root {
-      --accent:   #1a73e8;
-      --accent-bg:#e8f0fe;
-      --text:     #202124;
-      --muted:    #5f6368;
-      --border:   #e8eaed;
-      --card-bg:  #f8f9fa;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      color: var(--text);
-      background: #fff;
-      font-size: 0.97rem;
-      line-height: 1.65;
-    }
-
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    /* ─── Navbar ────────────────────────────────────────────────────────── */
-    .site-nav {
-      background: #fff;
-      border-bottom: 1px solid var(--border);
-      padding: 0.65rem 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    .site-nav .brand {
-      font-weight: 700;
-      font-size: 1rem;
-      color: var(--text) !important;
-      letter-spacing: 0.01em;
-    }
-    .site-nav .nav-link {
-      color: var(--muted) !important;
-      font-size: 0.875rem;
-      font-weight: 500;
-      padding: 0.25rem 0.6rem !important;
-      border-radius: 4px;
-      transition: color 0.15s, background 0.15s;
-    }
-    .site-nav .nav-link:hover {
-      color: var(--text) !important;
-      background: var(--card-bg);
-      text-decoration: none;
-    }
-
-    /* ─── Sections ──────────────────────────────────────────────────────── */
-    section {
-      padding: 4rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-    section:last-of-type { border-bottom: none; }
-
-    .section-title {
-      font-size: 1.45rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 2rem;
-      padding-bottom: 0.6rem;
-      border-bottom: 2px solid var(--border);
-    }
-
-    /* ─── Profile ───────────────────────────────────────────────────────── */
-    .profile-photo {
-      width: 170px;
-      height: 170px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid var(--border);
-      display: block;
-      margin: 0 auto 0.9rem;
-    }
-    .profile-name {
-      font-size: 1.05rem;
-      font-weight: 700;
-      margin-bottom: 0.2rem;
-    }
-    .profile-role {
-      font-size: 0.83rem;
-      color: var(--muted);
-      margin-bottom: 0.6rem;
-    }
-    .social-icons { display: flex; justify-content: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.8rem; }
-    .social-icons a {
-      color: var(--muted);
-      font-size: 1.25rem;
-      transition: color 0.15s;
-    }
-    .social-icons a:hover { color: var(--accent); text-decoration: none; }
-    .profile-links a {
-      font-size: 0.8rem;
-      display: block;
-      text-align: center;
-    }
-
-    /* ─── Interests / Education ─────────────────────────────────────────── */
-    .interests-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .interests-list li {
-      padding: 0.15rem 0;
-      font-size: 0.9rem;
-    }
-    .interests-list li::before { content: "▸ "; color: var(--accent); }
-
-    .edu-item { display: flex; align-items: flex-start; gap: 0.6rem; margin-bottom: 0.7rem; }
-    .edu-item i { color: var(--accent); margin-top: 0.3rem; flex-shrink: 0; }
-    .edu-degree { font-weight: 600; font-size: 0.88rem; }
-    .edu-inst   { font-size: 0.82rem; color: var(--muted); }
-
-    /* ─── News ──────────────────────────────────────────────────────────── */
-    .news-wrap {
-      max-height: 270px;
-      overflow-y: auto;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 0.5rem 0.75rem;
-    }
-    .news-row { display: flex; gap: 1rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); font-size: 0.875rem; }
-    .news-row:last-child { border-bottom: none; }
-    .news-date {
-      white-space: nowrap;
-      color: var(--muted);
-      font-size: 0.8rem;
-      font-weight: 500;
-      min-width: 72px;
-      padding-top: 0.05rem;
-    }
-
-    /* ─── Publications ──────────────────────────────────────────────────── */
-    .pub-item {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 1.8rem;
-      padding-bottom: 1.8rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .pub-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-    .pub-year {
-      min-width: 44px;
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--muted);
-      padding-top: 0.35rem;
-      text-align: right;
-    }
-    .pub-body { flex: 1; }
-    .pub-venue {
-      display: inline-block;
-      background: var(--accent-bg);
-      color: var(--accent);
-      font-size: 0.72rem;
-      font-weight: 600;
-      padding: 0.1rem 0.5rem;
-      border-radius: 3px;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      margin-bottom: 0.35rem;
-    }
-    .pub-title {
-      font-size: 0.97rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 0.25rem;
-      line-height: 1.4;
-    }
-    .pub-authors {
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin-bottom: 0.4rem;
-    }
-    .pub-links { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .pub-btn {
-      font-size: 0.75rem;
-      padding: 0.18rem 0.55rem;
-      border: 1px solid var(--accent);
-      color: var(--accent);
-      border-radius: 4px;
-      transition: all 0.15s;
-      white-space: nowrap;
-    }
-    .pub-btn:hover { background: var(--accent); color: #fff; text-decoration: none; }
-
-    /* ─── Research / Project cards ──────────────────────────────────────── */
-    .r-card {
-      background: var(--card-bg);
-      border-radius: 8px;
-      padding: 1.4rem 1.6rem;
-      margin-bottom: 1.4rem;
-      border-left: 3px solid var(--accent);
-      transition: box-shadow 0.15s;
-    }
-    .r-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
-    .r-card h5 { font-size: 0.97rem; font-weight: 600; margin-bottom: 0.4rem; line-height: 1.4; }
-    .r-card .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.55rem; }
-    .r-card p { font-size: 0.88rem; color: #3c3c3c; margin-bottom: 0.6rem; }
-
-    /* ─── Tags ──────────────────────────────────────────────────────────── */
-    .tag {
-      display: inline-block;
-      background: #f1f3f5;
-      color: var(--muted);
-      font-size: 0.72rem;
-      padding: 0.1rem 0.45rem;
-      border-radius: 3px;
-      margin: 0 0.25rem 0.25rem 0;
-    }
-
-    /* ─── Awards ────────────────────────────────────────────────────────── */
-    .award-item { display: flex; align-items: flex-start; gap: 0.65rem; margin-bottom: 0.85rem; font-size: 0.93rem; }
-    .award-item i { color: #f9ab00; margin-top: 0.25rem; flex-shrink: 0; }
-
-    /* ─── Contact ───────────────────────────────────────────────────────── */
-    .contact-row { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 1rem; font-size: 0.93rem; }
-    .contact-row i { color: var(--accent); font-size: 1.1rem; width: 20px; text-align: center; flex-shrink: 0; }
-
-    /* ─── Footer ────────────────────────────────────────────────────────── */
-    footer {
-      background: var(--card-bg);
-      border-top: 1px solid var(--border);
-      padding: 1.4rem 0;
-      text-align: center;
-      font-size: 0.82rem;
-      color: #adb5bd;
-    }
-    footer a { color: #adb5bd; }
-    footer a:hover { color: var(--muted); }
-
-    /* ─── Responsive tweaks ─────────────────────────────────────────────── */
-    @media (max-width: 767px) {
-      .profile-photo { width: 130px; height: 130px; }
-      section { padding: 2.5rem 0; }
-      .pub-item { flex-direction: column; gap: 0.3rem; }
-      .pub-year { text-align: left; padding-top: 0; }
-    }
-  </style>
+  <link rel="stylesheet" href="/assets/style.css">
 </head>
-
 <body>
 
-  <!-- ═══════════════════════════════════════════════════════════════════
-       NAVBAR
-  ══════════════════════════════════════════════════════════════════════ -->
-  <nav class="site-nav navbar navbar-expand-md">
+  <!-- progress bar -->
+  <div id="progress-bar"></div>
+
+  <!-- ── NAVBAR ───────────────────────────────────────────────────── -->
+  <nav class="site-nav navbar navbar-expand-md sticky-top">
     <div class="container">
-      <a class="navbar-brand brand" href="#">Md Fokhrul Islam</a>
-      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand brand" href="/">Md Fokhrul Islam</a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navMenu">
-        <ul class="navbar-nav gap-1">
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#publications">Publications</a></li>
-          <li class="nav-item"><a class="nav-link" href="#research">Research</a></li>
-          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-          <li class="nav-item"><a class="nav-link" href="#awards">Awards</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-          <li class="nav-item"><a class="nav-link" href="/files/cv.pdf" target="_blank">CV</a></li>
+        <ul class="navbar-nav align-items-center gap-1">
+          <li class="nav-item"><a class="nav-link active" href="/">about</a></li>
+          <li class="nav-item"><a class="nav-link" href="/blog/">blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="/publications.html">publications</a></li>
+          <li class="nav-item"><a class="nav-link" href="/media.html">media coverage</a></li>
+          <li class="nav-item"><a class="nav-link" href="/talks.html">talk</a></li>
+          <li class="nav-item ms-2">
+            <button class="ctrlk-btn" id="search-trigger" aria-label="Search">
+              <span class="ctrlk-key">ctrl</span><span class="ctrlk-key">k</span>
+            </button>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
 
+  <!-- ── ABOUT ────────────────────────────────────────────────────── -->
+  <main class="container py-5">
+    <div class="row g-5 align-items-start">
 
-  <!-- ═══════════════════════════════════════════════════════════════════
-       ABOUT
-  ══════════════════════════════════════════════════════════════════════ -->
-  <section id="about">
-    <div class="container">
-      <div class="row g-4 g-md-5">
-
-        <!-- ── Left column: photo + links ── -->
-        <div class="col-12 col-md-3 text-center">
-          <img src="/admin/avatar_fokhrul_01.jpeg" alt="Md Fokhrul Islam" class="profile-photo">
-          <p class="profile-name">Md Fokhrul Islam</p>
-          <p class="profile-role">PhD Student &amp; RA<br>University of Virginia</p>
-          <div class="social-icons">
-            <a href="mailto:fokhrul.rmedu@gmail.com"              title="Email"><i class="fas fa-envelope"></i></a>
-            <a href="https://scholar.google.com/citations?user=bQjPde8AAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>
-            <a href="https://twitter.com/fokhrul_i"                target="_blank" title="Twitter / X"><i class="fab fa-twitter"></i></a>
-            <a href="https://github.com/fokhruli"                  target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/fokhrul-islam/"   target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="/files/cv.pdf"                                target="_blank" title="CV"><i class="ai ai-cv"></i></a>
-          </div>
-          <div class="profile-links">
-            <a href="https://datascience.virginia.edu/people/mohommad-fokhrul-islam" target="_blank">UVA SDS Profile</a>
-            <a href="https://med.virginia.edu/diabetes-technology/leadership/data-science-lab/fokhrul-islam/" target="_blank">UVA CDT Profile</a>
-          </div>
-        </div>
-
-        <!-- ── Right column: bio + interests/edu + news ── -->
-        <div class="col-12 col-md-9">
-
-          <p>My research pursuits revolve around the fascinating intersection of multi-modal learning in scenarios with limited data and interpretable machine learning, with a particular focus on learning from natural geometries present in the problems. I am passionate about creating automated systems for applications in healthcare, robotics, and social good, with a strong emphasis on geometric (e.g. graph) representation learning, reinforcement learning, and machine perception.</p>
-          <p>I am a first-year Data Science Ph.D. student at the University of Virginia, very fortunate to be advised by Professor <a href="https://datascience.virginia.edu/people/heman-shakeri" target="_blank">Heman Shakeri</a>.</p>
-          <p>Outside of research, I enjoy reading non-fiction books — particularly in (political) philosophy, ethics, and psychology. I am also an avid fan of football and chess, with <a href="https://en.wikipedia.org/wiki/Lionel_Messi" target="_blank">Lionel Messi</a> (G.O.A.T.!) and <a href="https://en.wikipedia.org/wiki/Magnus_Carlsen" target="_blank">Magnus Carlsen</a> among my all-time favorites.</p>
-
-          <!-- Interests + Education -->
-          <div class="row mt-3 g-3">
-            <div class="col-sm-5">
-              <h6 class="fw-bold mb-2">Interests</h6>
-              <ul class="interests-list">
-                <li>AI in Healthcare, Robotics &amp; Social Good</li>
-                <li>Machine Vision</li>
-                <li>Geometric Representation Learning</li>
-                <li>Multimodal Commonsense Reasoning</li>
-              </ul>
-            </div>
-            <div class="col-sm-7">
-              <h6 class="fw-bold mb-2">Education</h6>
-              <div class="edu-item">
-                <i class="fas fa-graduation-cap fa-sm"></i>
-                <div>
-                  <div class="edu-degree">PhD in Data Science &nbsp;(2025 – present)</div>
-                  <div class="edu-inst">University of Virginia</div>
-                </div>
-              </div>
-              <div class="edu-item">
-                <i class="fas fa-graduation-cap fa-sm"></i>
-                <div>
-                  <div class="edu-degree">MSc in Robotics &amp; Mechatronics Engineering &nbsp;(2022 – 2023)</div>
-                  <div class="edu-inst">University of Dhaka</div>
-                </div>
-              </div>
-              <div class="edu-item">
-                <i class="fas fa-graduation-cap fa-sm"></i>
-                <div>
-                  <div class="edu-degree">BSc in Robotics &amp; Mechatronics Engineering &nbsp;(2017 – 2021)</div>
-                  <div class="edu-inst">University of Dhaka</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- News -->
-          <div class="mt-4">
-            <h6 class="fw-bold mb-2">News</h6>
-            <div class="news-wrap">
-
-              <div class="news-row">
-                <span class="news-date">Aug 2025</span>
-                <span>Started my PhD at the University of Virginia!</span>
-              </div>
-              <div class="news-row">
-                <span class="news-date">Apr 2025</span>
-                <span>Paper on multimodal class representation and Contrastive GAN for 3D ZSL accepted at <strong>Neurocomputing</strong>. &rarr; <a href="https://www.sciencedirect.com/science/article/pii/S0925231225009361" target="_blank">ReKon3D</a></span>
-              </div>
-              <div class="news-row">
-                <span class="news-date">Apr 2024</span>
-                <span>Paper on generative feature distillation for 3D zero-shot learning accepted at <strong>Image and Vision Computing</strong>. &rarr; <a href="https://www.sciencedirect.com/science/article/abs/pii/S0262885624001537" target="_blank">VAE-GAN3D</a></span>
-              </div>
-              <div class="news-row">
-                <span class="news-date">Jan 2024</span>
-                <span>Joined <a href="https://en.wikipedia.org/wiki/ACI_Limited" target="_blank">ACI Limited</a> as Machine Learning Engineer.</span>
-              </div>
-              <div class="news-row">
-                <span class="news-date">Aug 2023</span>
-                <span>Received research assistant offer to work under Dr. Sejuti Rahman!</span>
-              </div>
-              <div class="news-row">
-                <span class="news-date">Jul 2023</span>
-                <span>Successfully defended my M.Sc. thesis!</span>
-              </div>
-              <div class="news-row">
-                <span class="news-date">May 2023</span>
-                <span>Paper on code-mixed NLP accepted at <strong>IEEE Access</strong>. &rarr; <a href="https://ieeexplore.ieee.org/abstract/document/10129187" target="_blank">Data-Augmentation for Bangla-English Code-Mixed SA</a></span>
-              </div>
-              <div class="news-row">
-                <span class="news-date">Nov 2022</span>
-                <span>Review paper on AI-driven rehabilitation accepted at <strong>IEEE TNSRE</strong>. &rarr; <a href="https://ieeexplore.ieee.org/document/9936658" target="_blank">AI-driven Stroke Rehabilitation Review</a></span>
-              </div>
-              <div class="news-row">
-                <span class="news-date">Oct 2022</span>
-                <span>Research project <a href="https://drive.google.com/file/d/1gwUFh48ob7GjDLgdScuY4hMw_lvk2LPW/view" target="_blank">IHABOT</a> placed 2nd at the Dhaka University Research-Publication Fair.</span>
-              </div>
-              <div class="news-row">
-                <span class="news-date">Aug 2022</span>
-                <span>Attended <a href="https://www.oxfordml.school/oxml2022" target="_blank">OxML Summer School 2022</a> at Oxford University.</span>
-              </div>
-              <div class="news-row">
-                <span class="news-date">Jun 2022</span>
-                <span>Undergrad thesis selected for a <a href="https://drive.google.com/file/d/1lsp4KJI3bi-MLdaYRGAPyexuQKRY4C93/view" target="_blank">poster</a> at the <a href="https://sites.google.com/view/wicvcvpr2022/program/accepted-work" target="_blank">CVPR 2022 WiCV workshop</a>.</span>
-              </div>
-              <div class="news-row">
-                <span class="news-date">Feb 2022</span>
-                <span>First paper on exercise assessment accepted at <strong>IEEE TNSRE 2022</strong>. &rarr; <a href="https://ieeexplore.ieee.org/document/9709340" target="_blank">GCN for Physical Rehab Assessment</a></span>
-              </div>
-              <div class="news-row">
-                <span class="news-date">Dec 2021</span>
-                <span>Completed undergraduate degree at RMEDU, University of Dhaka.</span>
-              </div>
-
-            </div><!-- /news-wrap -->
-          </div>
-
-        </div><!-- /right col -->
-      </div><!-- /row -->
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════════════════════════════
-       PUBLICATIONS
-  ══════════════════════════════════════════════════════════════════════ -->
-  <section id="publications">
-    <div class="container">
-      <h2 class="section-title">Publications</h2>
-
-      <!-- ReKon3D -->
-      <div class="pub-item">
-        <div class="pub-year">2025</div>
-        <div class="pub-body">
-          <span class="pub-venue">Neurocomputing</span>
-          <div class="pub-title">
-            <a href="https://www.sciencedirect.com/science/article/pii/S0925231225009361" target="_blank" class="text-dark">
-              ReKon3D: Relation-Knowledge Aware Multi-Modal Embedding and Contrastive GAN for Zero-Shot 3D Recognition
-            </a>
-          </div>
-          <div class="pub-authors"><strong>Md Fokhrul Islam</strong>, Sejuti Rahman, Shafin Rahman</div>
-          <div class="pub-links">
-            <a class="pub-btn" href="https://www.sciencedirect.com/science/article/pii/S0925231225009361" target="_blank"><i class="fas fa-file-pdf me-1"></i>Paper</a>
-          </div>
+      <!-- Left: photo + social -->
+      <div class="col-12 col-md-3 text-center">
+        <img src="/admin/avatar_fokhrul_01.jpeg" alt="Md Fokhrul Islam" class="profile-photo mb-3">
+        <div class="social-icons">
+          <a href="mailto:fokhrul.rmedu@gmail.com"              title="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://scholar.google.com/citations?user=bQjPde8AAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>
+          <a href="https://github.com/fokhruli"                  target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://twitter.com/fokhrul_i"                target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.linkedin.com/in/fokhrul-islam/"   target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="/files/cv.pdf"                                target="_blank" title="CV"><i class="ai ai-cv"></i></a>
         </div>
       </div>
 
-      <!-- VAE-GAN3D -->
-      <div class="pub-item">
-        <div class="pub-year">2024</div>
-        <div class="pub-body">
-          <span class="pub-venue">Image &amp; Vision Computing</span>
-          <div class="pub-title">
-            <a href="https://www.sciencedirect.com/science/article/abs/pii/S0262885624001537" target="_blank" class="text-dark">
-              VAE-GAN3D: Leveraging Image-Based Semantics for 3D Zero-Shot Recognition
-            </a>
-          </div>
-          <div class="pub-authors">Md Tahmeed Abdullah, Sejuti Rahman, Shafin Rahman, <strong>Md Fokhrul Islam</strong></div>
-          <div class="pub-links">
-            <a class="pub-btn" href="https://www.sciencedirect.com/science/article/abs/pii/S0262885624001537" target="_blank"><i class="fas fa-file-pdf me-1"></i>Paper</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Code-Mixed SA -->
-      <div class="pub-item">
-        <div class="pub-year">2023</div>
-        <div class="pub-body">
-          <span class="pub-venue">IEEE Access</span>
-          <div class="pub-title">
-            <a href="https://fokhruli.github.io/CM-senti-analysis/" class="text-dark">
-              Data-Augmentation for Bangla-English Code-Mixed Sentiment Analysis: Enhancing Cross-Linguistic Contextual Understanding
-            </a>
-          </div>
-          <div class="pub-authors">Mohammad Tareq, <strong>Md Fokhrul Islam</strong>, Swakshar Deb, Sejuti Rahman, Abdullah Al Mahmud</div>
-          <div class="pub-links">
-            <a class="pub-btn" href="https://ieeexplore.ieee.org/abstract/document/10129187" target="_blank"><i class="fas fa-file-pdf me-1"></i>Paper</a>
-            <a class="pub-btn" href="https://github.com/fokhruli/CM-seti-anlysis" target="_blank"><i class="fab fa-github me-1"></i>Code</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Stroke Review -->
-      <div class="pub-item">
-        <div class="pub-year">2022</div>
-        <div class="pub-body">
-          <span class="pub-venue">IEEE TNSRE</span>
-          <div class="pub-title">
-            <a href="https://ieeexplore.ieee.org/document/9936658" target="_blank" class="text-dark">
-              AI-Driven Stroke Rehabilitation Systems and Assessment: A Systematic Review
-            </a>
-          </div>
-          <div class="pub-authors">Sejuti Rahman, Sujan Sarker, A. K. M. Nadimul Haque, Monisha Mushtary Uttsha, <strong>Md Fokhrul Islam</strong>, Swakshar Deb</div>
-          <div class="pub-links">
-            <a class="pub-btn" href="https://ieeexplore.ieee.org/document/9936658" target="_blank"><i class="fas fa-file-pdf me-1"></i>Paper</a>
-            <a class="pub-btn" href="https://github.com/fokhruli/stroke-rehab-benchmark" target="_blank"><i class="fab fa-github me-1"></i>Code</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- GCN Rehab -->
-      <div class="pub-item">
-        <div class="pub-year">2022</div>
-        <div class="pub-body">
-          <span class="pub-venue">IEEE TNSRE</span>
-          <div class="pub-title">
-            <a href="https://fokhruli.github.io/STGCN-rehab/" class="text-dark">
-              Graph Convolutional Networks for Assessment of Physical Rehabilitation Exercises
-            </a>
-          </div>
-          <div class="pub-authors">
-            Swakshar Deb<sup>*</sup>, <strong>Md Fokhrul Islam<sup>*</sup></strong>, Shafin Rahman, Sejuti Rahman
-            <span class="ms-1 text-muted" style="font-size:0.8rem;">(* equal contribution)</span>
-          </div>
-          <div class="pub-links">
-            <a class="pub-btn" href="https://ieeexplore.ieee.org/document/9709340" target="_blank"><i class="fas fa-file-pdf me-1"></i>Paper</a>
-            <a class="pub-btn" href="https://github.com/fokhruli/STGCN-rehab" target="_blank"><i class="fab fa-github me-1"></i>Code</a>
-            <a class="pub-btn" href="https://youtu.be/ONqMG7izSA0" target="_blank"><i class="fas fa-video me-1"></i>Demo</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════════════════════════════
-       RESEARCH
-  ══════════════════════════════════════════════════════════════════════ -->
-  <section id="research">
-    <div class="container">
-      <h2 class="section-title">Research</h2>
-
-      <!-- Master's thesis -->
-      <div class="r-card">
-        <div class="meta"><strong>Md Fokhrul Islam</strong>, Sejuti Rahman &nbsp;·&nbsp; May 2022 – July 2023</div>
-        <h5>
-          <a href="https://drive.google.com/file/d/1dt_ezvLkrVo2rPydHx1RoSt0Zq7A0zWD/view" target="_blank" class="text-dark">
-            Relation and Knowledge Aware Zero-Shot Learning in 3D Object Recognition <span class="text-muted fw-normal">(Master's Thesis)</span>
-          </a>
-        </h5>
-        <p>Proposed a novel multimodal embedding framework that aligns visual data from 2D images of 3D objects with graph-based semantic information via an attention-based fusion module, and a semi-supervised contrastive GAN module to overcome seen-class bias in generalized ZSL. Achieves a 3% improvement in harmonic mean on ModelNet40 over the strongest baseline (3DGenZ).</p>
-        <div class="mb-2">
-          <span class="tag">3D Zero-Shot Learning</span><span class="tag">Graph Convolutional Networks</span><span class="tag">Contrastive Learning</span><span class="tag">Knowledge Graph</span>
-        </div>
-        <div class="pub-links">
-          <a class="pub-btn" href="https://drive.google.com/file/d/1dt_ezvLkrVo2rPydHx1RoSt0Zq7A0zWD/view" target="_blank">PDF</a>
-          <a class="pub-btn" href="https://github.com/fokhruli/RKA-ZSL3D" target="_blank"><i class="fab fa-github me-1"></i>Code</a>
-          <a class="pub-btn" href="https://www.sciencedirect.com/science/article/pii/S0925231225009361" target="_blank">Paper (Neurocomputing)</a>
-        </div>
-      </div>
-
-      <!-- IHABOT -->
-      <div class="r-card">
-        <div class="meta">Sejuti Rahman (PI), Sujan Sarkar (Co-PI), <strong>Md Fokhrul Islam</strong>, et al. &nbsp;·&nbsp; June 2022 – October 2022</div>
-        <h5>
-          <a href="https://drive.google.com/file/d/1vAriuJqpSpqRFo2E2nrbLRbn4Nl00g6v/view" target="_blank" class="text-dark">
-            IHABOT: Intelligent Hospital Assistance Robot to Fight Contagion by Reducing Doctor-Patient Interaction
-          </a>
-        </h5>
-        <p>An autonomous hospital robot with autonomous navigation, physiological data collection, post-stroke rehabilitation exercise assessment, and COVID-19 diagnosis from radiography images using few-shot learning. Placed 2nd at the Dhaka University Research-Publication Fair, 2022.</p>
-        <div class="mb-2">
-          <span class="tag">Robotics</span><span class="tag">Healthcare AI</span><span class="tag">Computer Vision</span><span class="tag">Few-Shot Learning</span>
-        </div>
-        <div class="pub-links">
-          <a class="pub-btn" href="https://drive.google.com/file/d/1vAriuJqpSpqRFo2E2nrbLRbn4Nl00g6v/view" target="_blank">PDF</a>
-          <a class="pub-btn" href="https://www.youtube.com/watch?v=xO4uIkI0QHY" target="_blank"><i class="fas fa-video me-1"></i>Demo</a>
-        </div>
-      </div>
-
-      <!-- Undergrad thesis -->
-      <div class="r-card">
-        <div class="meta"><strong>Md Fokhrul Islam<sup>*</sup></strong>, Swakshar Deb<sup>*</sup>, Sejuti Rahman &nbsp;·&nbsp; March 2020 – December 2021</div>
-        <h5>
-          An Intelligent Agent for Evaluating and Guiding Post-Stroke Rehabilitation Exercises
-          <span class="text-muted fw-normal">(Undergraduate Thesis)</span>
-        </h5>
-        <p>Adapted spatio-temporal GCN to predict continuous rehabilitation quality scores from variable-length RGBD videos, with self-attention over body joints to guide users toward better performance. Achieves state-of-the-art on KIMORE and UI-PRMD datasets. Work featured in two IEEE TNSRE papers and selected for a CVPR 2022 WiCV poster.</p>
-        <div class="mb-2">
-          <span class="tag">Graph Neural Networks</span><span class="tag">Self-Attention</span><span class="tag">Skeleton Video</span><span class="tag">Rehabilitation Engineering</span>
-        </div>
-        <div class="pub-links">
-          <a class="pub-btn" href="https://drive.google.com/file/d/1VRZLFkN5Om1PQ0xcdhxpmI6yoV3h45Ju/view" target="_blank">Thesis</a>
-          <a class="pub-btn" href="https://ieeexplore.ieee.org/document/9709340" target="_blank">Paper 1</a>
-          <a class="pub-btn" href="https://ieeexplore.ieee.org/document/9936658" target="_blank">Paper 2</a>
-          <a class="pub-btn" href="https://drive.google.com/file/d/1lsp4KJI3bi-MLdaYRGAPyexuQKRY4C93/view" target="_blank">Poster</a>
-          <a class="pub-btn" href="https://github.com/fokhruli/STGCN-rehab" target="_blank"><i class="fab fa-github me-1"></i>Code</a>
-          <a class="pub-btn" href="https://youtu.be/ONqMG7izSA0" target="_blank"><i class="fas fa-video me-1"></i>Demo</a>
-        </div>
-      </div>
-
-      <!-- Code-Mixed NLP Research -->
-      <div class="r-card">
-        <div class="meta">Mohammad Tareq, <strong>Md Fokhrul Islam</strong>, Swakshar Deb, Sejuti Rahman &nbsp;·&nbsp; February 2022 – May 2022</div>
-        <h5>Artificial Intelligence in Business Decision-Making: Code-Mixed and Transliterated Bangla Customer Reviews</h5>
-        <p>Constructed an annotated Bangla-English code-mixed (BE-CM) dataset and proposed a data augmentation strategy for word embedding models (Word2Vec, FastText) to improve cross-lingual contextual understanding. XGBoost with FastText achieves 87% weighted F1 on the dataset. Collaboration with CARSHRM, University of Dhaka.</p>
-        <div class="mb-2">
-          <span class="tag">Code-Mixed NLP</span><span class="tag">Sentiment Analysis</span><span class="tag">Data Augmentation</span><span class="tag">Low-Resource Languages</span>
-        </div>
-        <div class="pub-links">
-          <a class="pub-btn" href="https://ieeexplore.ieee.org/abstract/document/10129187" target="_blank">Paper (IEEE Access)</a>
-          <a class="pub-btn" href="https://github.com/fokhruli/CM-seti-anlysis" target="_blank"><i class="fab fa-github me-1"></i>Code</a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════════════════════════════
-       PROJECTS
-  ══════════════════════════════════════════════════════════════════════ -->
-  <section id="projects">
-    <div class="container">
-      <h2 class="section-title">Selected Projects</h2>
-      <div class="row g-3">
-
-        <div class="col-md-6">
-          <div class="r-card h-100">
-            <div class="meta">Class Project &nbsp;·&nbsp; Oct 2019 – Jan 2020</div>
-            <h5>Learning to Trade with Deep Q-Learning</h5>
-            <p>AI agent for optimized stock trading using DDPG, tested on both S&amp;P 500 and Dhaka Stock Exchange datasets.</p>
-            <div class="mb-2"><span class="tag">Deep RL</span><span class="tag">DDPG / DQN</span><span class="tag">Finance</span></div>
-            <div class="pub-links">
-              <a class="pub-btn" href="https://drive.google.com/file/d/1tpDaktH8uxfiTTuwck5KAr9JzonaQFB-/view" target="_blank">Report</a>
-              <a class="pub-btn" href="https://github.com/fokhruli/stock-trader-with-rl" target="_blank"><i class="fab fa-github me-1"></i>Code</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="r-card h-100">
-            <div class="meta">Class Project &nbsp;·&nbsp; Jan 2021</div>
-            <h5>Swarm Robot Aggregation (Triangular Pattern Formation)</h5>
-            <p>Six swarm robots in 2D space modeled via particle swarm aggregation equations to achieve a specific triangular formation pattern.</p>
-            <div class="mb-2"><span class="tag">Swarm Robotics</span><span class="tag">PSO</span></div>
-          </div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="r-card h-100">
-            <div class="meta">Class Project &nbsp;·&nbsp; Jan 2021</div>
-            <h5>Camera Calibration using AprilTag</h5>
-            <p>Implementation of Zhang's flexible camera calibration technique using AprilTag markers in MATLAB 2021b to estimate intrinsic and extrinsic lens/sensor parameters.</p>
-            <div class="mb-2"><span class="tag">Computer Vision</span><span class="tag">Camera Calibration</span><span class="tag">MATLAB</span></div>
-          </div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="r-card h-100">
-            <div class="meta">Software Project (Collaboration with IPNA) &nbsp;·&nbsp; Feb 2019 – Dec 2020</div>
-            <h5>Classifying ASD/TD from Eye-Tracking Data using Saliency Maps</h5>
-            <p>Visual saliency-based deep learning model for ASD/TD classification from eye-fixation data, with few-shot learning to handle limited data availability.</p>
-            <div class="mb-2"><span class="tag">Deep Learning</span><span class="tag">Few-Shot Learning</span><span class="tag">Eye-Tracking</span></div>
-          </div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="r-card h-100">
-            <div class="meta">Class Project &nbsp;·&nbsp; June 2020</div>
-            <h5>Self-Solving Eight Puzzle using A* Algorithm</h5>
-            <p>AI-based puzzle solver using A* search with Manhattan distance &amp; mismatched-tile heuristics, with a physical PVC board controlled by a CNC machine to execute the solution steps.</p>
-            <div class="mb-2"><span class="tag">AI Search</span><span class="tag">A* Algorithm</span><span class="tag">Robotics</span></div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════════════════════════════
-       AWARDS
-  ══════════════════════════════════════════════════════════════════════ -->
-  <section id="awards">
-    <div class="container">
-      <h2 class="section-title">Scholarships &amp; Awards</h2>
-
-      <div class="award-item">
-        <i class="fas fa-trophy"></i>
-        <span>Top 7<sup>th</sup> in Robi Datathon 3.0 (largest AI/ML competition in Bangladesh), 2024</span>
-      </div>
-      <div class="award-item">
-        <i class="fas fa-trophy"></i>
-        <span>National Science &amp; Technology (NST) Fellowship for Excellent Master's Thesis, 2022–2023</span>
-      </div>
-      <div class="award-item">
-        <i class="fas fa-trophy"></i>
-        <span>IFIC Bank Trust Fund Research Grants — Highest award, awarded consecutively 3 times (2021, 2022, 2023)</span>
-      </div>
-      <div class="award-item">
-        <i class="fas fa-trophy"></i>
-        <span>Winner in the Research Project Category, Seminar on "Robotics in Bangladesh: Academia and Industry Initiatives", 2022</span>
-      </div>
-      <div class="award-item">
-        <i class="fas fa-trophy"></i>
-        <span>1<sup>st</sup> Runner-up, Research Project Presentation — Dhaka University Research and Publication Fair, 2022</span>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════════════════════════════
-       CONTACT
-  ══════════════════════════════════════════════════════════════════════ -->
-  <section id="contact">
-    <div class="container">
-      <h2 class="section-title">Contact</h2>
-      <div class="col-md-7">
-        <div class="contact-row">
-          <i class="fas fa-envelope"></i>
+      <!-- Right: bio -->
+      <div class="col-12 col-md-9">
+        <h1 class="display-name">Md Fokhrul Islam</h1>
+        <p class="role-line">PhD Student &amp; RA · <a href="https://datascience.virginia.edu/" target="_blank">School of Data Science, UVA</a></p>
+        <p class="profile-links-inline">
+          <a href="https://datascience.virginia.edu/people/mohommad-fokhrul-islam" target="_blank">UVA SDS</a>
+          &nbsp;/&nbsp;
+          <a href="https://med.virginia.edu/diabetes-technology/leadership/data-science-lab/fokhrul-islam/" target="_blank">UVA CDT</a>
+          &nbsp;/&nbsp;
           <a href="mailto:fokhrul.rmedu@gmail.com">fokhrul.rmedu@gmail.com</a>
+        </p>
+
+        <p>I am a first-year Data Science PhD student at the University of Virginia, advised by Professor <a href="https://datascience.virginia.edu/people/heman-shakeri" target="_blank">Heman Shakeri</a>. My research is at the intersection of <em>multi-modal learning</em>, <em>geometric representation learning</em>, and <em>interpretable machine learning</em>, with applications in healthcare, robotics, and social good.</p>
+
+        <p>Broadly, I am interested in three directions:</p>
+        <ul class="research-list">
+          <li><em>Representation learning on geometry</em> — learning from graphs, skeletons, and point clouds with limited supervision.</li>
+          <li><em>Multimodal &amp; low-resource learning</em> — bridging vision, language, and knowledge graphs for zero-shot recognition.</li>
+          <li><em>AI for health</em> — building automated assessment and rehabilitation systems using deep learning.</li>
+        </ul>
+
+        <p>Before UVA I completed my MSc and BSc in Robotics &amp; Mechatronics Engineering at the University of Dhaka, where I worked with <a href="https://www.du.ac.bd/faculty/faculty_details/RME/2150" target="_blank">Dr. Sejuti Rahman</a>.</p>
+
+        <!-- News -->
+        <h2 class="section-h mt-5">news</h2>
+        <div class="news-wrap">
+          <div class="news-row"><span class="news-date">Aug 2025</span><span>Started PhD at University of Virginia.</span></div>
+          <div class="news-row"><span class="news-date">Apr 2025</span><span>Paper accepted at <strong>Neurocomputing</strong> — <a href="https://www.sciencedirect.com/science/article/pii/S0925231225009361" target="_blank">ReKon3D: Contrastive GAN for Zero-Shot 3D Recognition</a>.</span></div>
+          <div class="news-row"><span class="news-date">Apr 2024</span><span>Paper accepted at <strong>Image and Vision Computing</strong> — <a href="https://www.sciencedirect.com/science/article/abs/pii/S0262885624001537" target="_blank">VAE-GAN3D: 3D Zero-Shot via Image Semantics</a>.</span></div>
+          <div class="news-row"><span class="news-date">Jan 2024</span><span>Joined <a href="https://en.wikipedia.org/wiki/ACI_Limited" target="_blank">ACI Limited</a> as Machine Learning Engineer.</span></div>
+          <div class="news-row"><span class="news-date">Jul 2023</span><span>Successfully defended MSc thesis.</span></div>
+          <div class="news-row"><span class="news-date">May 2023</span><span>Paper accepted at <strong>IEEE Access</strong> — <a href="https://ieeexplore.ieee.org/abstract/document/10129187" target="_blank">Data-Augmentation for Bangla-English Code-Mixed SA</a>.</span></div>
+          <div class="news-row"><span class="news-date">Nov 2022</span><span>Review paper accepted at <strong>IEEE TNSRE</strong> — <a href="https://ieeexplore.ieee.org/document/9936658" target="_blank">AI-driven Stroke Rehabilitation</a>.</span></div>
+          <div class="news-row"><span class="news-date">Oct 2022</span><span><a href="https://drive.google.com/file/d/1gwUFh48ob7GjDLgdScuY4hMw_lvk2LPW/view" target="_blank">IHABOT</a> placed 2nd at DU Research-Publication Fair.</span></div>
+          <div class="news-row"><span class="news-date">Aug 2022</span><span>Attended <a href="https://www.oxfordml.school/oxml2022" target="_blank">OxML Summer School 2022</a>.</span></div>
+          <div class="news-row"><span class="news-date">Jun 2022</span><span>Undergrad thesis selected for <a href="https://drive.google.com/file/d/1lsp4KJI3bi-MLdaYRGAPyexuQKRY4C93/view" target="_blank">poster</a> at <a href="https://sites.google.com/view/wicvcvpr2022/program/accepted-work" target="_blank">CVPR WiCV 2022</a>.</span></div>
+          <div class="news-row"><span class="news-date">Feb 2022</span><span>First paper accepted at <strong>IEEE TNSRE</strong> — <a href="https://ieeexplore.ieee.org/document/9709340" target="_blank">GCN for Physical Rehab Assessment</a>.</span></div>
         </div>
-        <div class="contact-row">
-          <i class="fab fa-twitter"></i>
-          <a href="https://twitter.com/fokhrul_i" target="_blank">@fokhrul_i</a>
+
+        <!-- Latest posts -->
+        <h2 class="section-h mt-5">latest posts</h2>
+        <ul class="post-list">
+          <li><span class="post-date">Apr 2025</span> <a href="/blog/welcome.html">Welcome to my blog — what I'll be writing about</a></li>
+        </ul>
+        <a href="/blog/" class="see-all">see all posts →</a>
+
+        <!-- Selected publications -->
+        <h2 class="section-h mt-5">selected publications</h2>
+        <div class="pub-mini">
+          <div class="pub-mini-venue">Neurocomputing 2025</div>
+          <div><a href="https://www.sciencedirect.com/science/article/pii/S0925231225009361" target="_blank">ReKon3D: Relation-Knowledge Aware Multi-Modal Embedding and Contrastive GAN for Zero-Shot 3D Recognition</a></div>
+          <div class="pub-mini-authors"><strong>Md Fokhrul Islam</strong>, Sejuti Rahman, Shafin Rahman</div>
         </div>
-        <div class="contact-row">
-          <i class="fab fa-linkedin"></i>
-          <a href="https://www.linkedin.com/in/fokhrul-islam/" target="_blank">linkedin.com/in/fokhrul-islam</a>
+        <div class="pub-mini">
+          <div class="pub-mini-venue">IEEE TNSRE 2022</div>
+          <div><a href="https://ieeexplore.ieee.org/document/9709340" target="_blank">Graph Convolutional Networks for Assessment of Physical Rehabilitation Exercises</a></div>
+          <div class="pub-mini-authors">Swakshar Deb*, <strong>Md Fokhrul Islam*</strong>, Shafin Rahman, Sejuti Rahman</div>
         </div>
-        <div class="contact-row">
-          <i class="fab fa-github"></i>
-          <a href="https://github.com/fokhruli" target="_blank">github.com/fokhruli</a>
+        <div class="pub-mini">
+          <div class="pub-mini-venue">IEEE Access 2023</div>
+          <div><a href="https://ieeexplore.ieee.org/abstract/document/10129187" target="_blank">Data-Augmentation for Bangla-English Code-Mixed Sentiment Analysis</a></div>
+          <div class="pub-mini-authors">Mohammad Tareq, <strong>Md Fokhrul Islam</strong>, Swakshar Deb, Sejuti Rahman, Abdullah Al Mahmud</div>
         </div>
-        <div class="contact-row">
-          <i class="fas fa-map-marker-alt"></i>
-          <span>University of Virginia, Charlottesville, VA, USA</span>
-        </div>
+        <a href="/publications.html" class="see-all">see all publications →</a>
+
       </div>
     </div>
-  </section>
+  </main>
 
-
-  <!-- ═══════════════════════════════════════════════════════════════════
-       FOOTER
-  ══════════════════════════════════════════════════════════════════════ -->
+  <!-- ── FOOTER ────────────────────────────────────────────────────── -->
   <footer>
     <div class="container">
-      <p class="mb-0">
-        &copy; 2025 Md Fokhrul Islam &nbsp;·&nbsp;
-        Design inspired by <a href="https://github.com/alshedivat/al-folio" target="_blank">al-folio</a>
-      </p>
+      <div class="footer-social">
+        <a href="mailto:fokhrul.rmedu@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="https://scholar.google.com/citations?user=bQjPde8AAAAJ&hl=en" target="_blank"><i class="ai ai-google-scholar"></i></a>
+        <a href="https://github.com/fokhruli" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://twitter.com/fokhrul_i" target="_blank"><i class="fab fa-twitter"></i></a>
+      </div>
+      <p class="footer-copy">&copy; 2025 Md Fokhrul Islam · Design inspired by <a href="https://github.com/alshedivat/al-folio" target="_blank">al-folio</a></p>
     </div>
   </footer>
 
+  <!-- ── SEARCH OVERLAY ───────────────────────────────────────────── -->
+  <div id="search-overlay" role="dialog" aria-modal="true" aria-label="Search">
+    <div id="search-box">
+      <input id="search-input" type="text" placeholder="Search pages, publications…" autocomplete="off" spellcheck="false">
+      <ul id="search-results"></ul>
+      <div id="search-hint"><kbd>↑↓</kbd> navigate &nbsp; <kbd>↵</kbd> open &nbsp; <kbd>esc</kbd> close</div>
+    </div>
+  </div>
 
-  <!-- Bootstrap 5 JS bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Active nav-link on scroll -->
-  <script>
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.site-nav .nav-link');
-
-    function setActive() {
-      let current = '';
-      sections.forEach(sec => {
-        if (window.scrollY >= sec.offsetTop - 80) current = sec.id;
-      });
-      navLinks.forEach(link => {
-        link.classList.remove('active', 'text-dark');
-        if (link.getAttribute('href') === '#' + current) link.classList.add('active', 'text-dark');
-      });
-    }
-    window.addEventListener('scroll', setActive, { passive: true });
-    setActive();
-  </script>
-
+  <script src="/assets/main.js"></script>
 </body>
 </html>
