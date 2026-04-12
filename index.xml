@@ -2,15 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Md Fokhrul Islam</title>
-    <link>/</link>
-      <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
-    <description>Md Fokhrul Islam</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language>
-    <image>
-      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
-      <title>Md Fokhrul Islam</title>
-      <link>/</link>
-    </image>
-    
+    <link>https://fokhruli.github.io/</link>
+    <atom:link href="https://fokhruli.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <description>Personal academic website of Md Fokhrul Islam, PhD Student &amp; RA at the University of Virginia.</description>
+    <language>en-us</language>
+    <managingEditor>fokhrul.rmedu@gmail.com (Md Fokhrul Islam)</managingEditor>
+    <webMaster>fokhrul.rmedu@gmail.com (Md Fokhrul Islam)</webMaster>
   </channel>
 </rss>
