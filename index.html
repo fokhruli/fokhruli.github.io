@@ -3,16 +3,59 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Md Fokhrul Islam — PhD Student & RA at University of Virginia.">
   <title>Md Fokhrul Islam</title>
+  <meta name="description" content="Md Fokhrul Islam — PhD student in Data Science at the University of Virginia. Research in multi-modal learning, geometric representation learning, and AI for health.">
+  <meta name="author" content="Md Fokhrul Islam">
+  <link rel="canonical" href="https://fokhruli.github.io/">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Md Fokhrul Islam">
+  <meta property="og:description" content="PhD student in Data Science at the University of Virginia. Research in multi-modal learning, geometric representation learning, and AI for health.">
+  <meta property="og:url" content="https://fokhruli.github.io/">
+  <meta property="og:image" content="https://fokhruli.github.io/images/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:creator" content="@fokhrul_i">
+
   <link rel="icon" type="image/png" href="/images/icon-48x48.png">
   <link rel="manifest" href="/index.webmanifest">
+
+  <!-- Set theme before first paint to avoid a flash -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme') ||
+          (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.3/css/academicons.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/style.css">
+
+  <!-- Structured data for search engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Md Fokhrul Islam",
+    "url": "https://fokhruli.github.io/",
+    "image": "https://fokhruli.github.io/images/fokhrul_photo.jpeg",
+    "jobTitle": "PhD Student",
+    "affiliation": { "@type": "CollegeOrUniversity", "name": "University of Virginia" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "University of Dhaka" },
+    "sameAs": [
+      "https://scholar.google.com/citations?user=bQjPde8AAAAJ",
+      "https://github.com/fokhruli",
+      "https://twitter.com/fokhrul_i",
+      "https://www.linkedin.com/in/fokhrul-islam/"
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -29,11 +72,14 @@
       <div class="collapse navbar-collapse justify-content-end" id="navMenu">
         <ul class="navbar-nav align-items-center gap-1">
           <li class="nav-item"><a class="nav-link active" href="/">about</a></li>
-          <li class="nav-item"><a class="nav-link" href="/blog/">blog</a></li>
           <li class="nav-item"><a class="nav-link" href="/publications.html">publications</a></li>
-          <li class="nav-item"><a class="nav-link" href="/media.html">media coverage</a></li>
-          <li class="nav-item"><a class="nav-link" href="/talks.html">talk</a></li>
-          <li class="nav-item ms-2">
+          <li class="nav-item"><a class="nav-link" href="/talks.html">talks</a></li>
+          <li class="nav-item"><a class="nav-link" href="/blog/">blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="/media.html">media</a></li>
+          <li class="nav-item">
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode"><i class="fas fa-moon"></i></button>
+          </li>
+          <li class="nav-item">
             <button class="ctrlk-btn" id="search-trigger" aria-label="Search">
               <span class="ctrlk-key">ctrl</span><span class="ctrlk-key">k</span>
             </button>
@@ -49,30 +95,30 @@
 
       <!-- Left: photo + social -->
       <div class="col-12 col-md-3 text-center">
-        <img src="/images/fokhrul_photo.jpeg" alt="Md Fokhrul Islam" class="profile-photo mb-3">
+        <img src="/images/fokhrul_photo.jpeg" alt="Md Fokhrul Islam" class="profile-photo mb-3" width="160" height="160">
         <div class="social-icons">
           <a href="mailto:fokhrul.rmedu@gmail.com"              title="Email"><i class="fas fa-envelope"></i></a>
-          <a href="https://scholar.google.com/citations?user=bQjPde8AAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>
-          <a href="https://github.com/fokhruli"                  target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-          <a href="https://twitter.com/fokhrul_i"                target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-          <a href="https://www.linkedin.com/in/fokhrul-islam/"   target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          <a href="/files/cv.pdf"                                target="_blank" title="CV"><i class="ai ai-cv"></i></a>
+          <a href="https://scholar.google.com/citations?user=bQjPde8AAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>
+          <a href="https://github.com/fokhruli"                  target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://twitter.com/fokhrul_i"                target="_blank" rel="noopener" title="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.linkedin.com/in/fokhrul-islam/"   target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
         </div>
+        <a href="/files/cv.pdf" target="_blank" class="cv-button"><i class="ai ai-cv me-1"></i>Curriculum Vitae</a>
       </div>
 
       <!-- Right: bio -->
       <div class="col-12 col-md-9">
         <h1 class="display-name">Md Fokhrul Islam</h1>
-        <p class="role-line">PhD Student &amp; RA · <a href="https://datascience.virginia.edu/" target="_blank">School of Data Science, UVA</a></p>
+        <p class="role-line">PhD Student &amp; RA · <a href="https://datascience.virginia.edu/" target="_blank" rel="noopener">School of Data Science, UVA</a></p>
         <p class="profile-links-inline">
-          <a href="https://datascience.virginia.edu/people/mohommad-fokhrul-islam" target="_blank">UVA SDS</a>
+          <a href="https://datascience.virginia.edu/people/mohommad-fokhrul-islam" target="_blank" rel="noopener">UVA SDS</a>
           &nbsp;/&nbsp;
-          <a href="https://med.virginia.edu/diabetes-technology/leadership/data-science-lab/fokhrul-islam/" target="_blank">UVA CDT</a>
+          <a href="https://med.virginia.edu/diabetes-technology/leadership/data-science-lab/fokhrul-islam/" target="_blank" rel="noopener">UVA CDT</a>
           &nbsp;/&nbsp;
           <a href="mailto:fokhrul.rmedu@gmail.com">fokhrul.rmedu@gmail.com</a>
         </p>
 
-        <p>I am a first-year Data Science PhD student at the University of Virginia, advised by Professor <a href="https://datascience.virginia.edu/people/heman-shakeri" target="_blank">Heman Shakeri</a>. My research is at the intersection of <em>multi-modal learning</em>, <em>geometric representation learning</em>, and <em>interpretable machine learning</em>, with applications in healthcare, robotics, and social good.</p>
+        <p>I am a Data Science PhD student at the University of Virginia, advised by Professor <a href="https://datascience.virginia.edu/people/heman-shakeri" target="_blank" rel="noopener">Heman Shakeri</a>. My research is at the intersection of <em>multi-modal learning</em>, <em>geometric representation learning</em>, and <em>interpretable machine learning</em>, with applications in healthcare, robotics, and social good.</p>
 
         <p>Broadly, I am interested in three directions:</p>
         <ul class="research-list">
@@ -81,49 +127,49 @@
           <li><em>AI for health</em> — building automated assessment and rehabilitation systems using deep learning.</li>
         </ul>
 
-        <p>Before UVA I completed my MSc and BSc in Robotics &amp; Mechatronics Engineering at the University of Dhaka, where I worked with <a href="https://www.du.ac.bd/faculty/faculty_details/RME/2150" target="_blank">Dr. Sejuti Rahman</a>.</p>
+        <p>Before UVA I completed my MSc and BSc in Robotics &amp; Mechatronics Engineering at the University of Dhaka, where I worked with <a href="https://www.du.ac.bd/faculty/faculty_details/RME/2150" target="_blank" rel="noopener">Dr. Sejuti Rahman</a>.</p>
 
         <!-- News -->
         <h2 class="section-h mt-5">news</h2>
         <div class="news-wrap">
           <div class="news-row"><span class="news-date">Aug 2025</span><span>Started PhD at University of Virginia.</span></div>
-          <div class="news-row"><span class="news-date">Apr 2025</span><span>Paper accepted at <strong>Neurocomputing</strong> — <a href="https://www.sciencedirect.com/science/article/pii/S0925231225009361" target="_blank">ReKon3D: Contrastive GAN for Zero-Shot 3D Recognition</a>.</span></div>
-          <div class="news-row"><span class="news-date">Apr 2024</span><span>Paper accepted at <strong>Image and Vision Computing</strong> — <a href="https://www.sciencedirect.com/science/article/abs/pii/S0262885624001537" target="_blank">VAE-GAN3D: 3D Zero-Shot via Image Semantics</a>.</span></div>
-          <div class="news-row"><span class="news-date">Jan 2024</span><span>Joined <a href="https://en.wikipedia.org/wiki/ACI_Limited" target="_blank">ACI Limited</a> as Machine Learning Engineer.</span></div>
+          <div class="news-row"><span class="news-date">Apr 2025</span><span>Paper accepted at <strong>Neurocomputing</strong> — <a href="https://www.sciencedirect.com/science/article/pii/S0925231225009361" target="_blank" rel="noopener">ReKon3D: Contrastive GAN for Zero-Shot 3D Recognition</a>.</span></div>
+          <div class="news-row"><span class="news-date">Apr 2024</span><span>Paper accepted at <strong>Image and Vision Computing</strong> — <a href="https://www.sciencedirect.com/science/article/abs/pii/S0262885624001537" target="_blank" rel="noopener">VAE-GAN3D: 3D Zero-Shot via Image Semantics</a>.</span></div>
+          <div class="news-row"><span class="news-date">Jan 2024</span><span>Joined <a href="https://en.wikipedia.org/wiki/ACI_Limited" target="_blank" rel="noopener">ACI Limited</a> as Machine Learning Engineer.</span></div>
           <div class="news-row"><span class="news-date">Jul 2023</span><span>Successfully defended MSc thesis.</span></div>
-          <div class="news-row"><span class="news-date">May 2023</span><span>Paper accepted at <strong>IEEE Access</strong> — <a href="https://ieeexplore.ieee.org/abstract/document/10129187" target="_blank">Data-Augmentation for Bangla-English Code-Mixed SA</a>.</span></div>
-          <div class="news-row"><span class="news-date">Nov 2022</span><span>Review paper accepted at <strong>IEEE TNSRE</strong> — <a href="https://ieeexplore.ieee.org/document/9936658" target="_blank">AI-driven Stroke Rehabilitation</a>.</span></div>
-          <div class="news-row"><span class="news-date">Oct 2022</span><span><a href="https://drive.google.com/file/d/1gwUFh48ob7GjDLgdScuY4hMw_lvk2LPW/view" target="_blank">IHABOT</a> placed 2nd at DU Research-Publication Fair.</span></div>
-          <div class="news-row"><span class="news-date">Aug 2022</span><span>Attended <a href="https://www.oxfordml.school/oxml2022" target="_blank">OxML Summer School 2022</a>.</span></div>
-          <div class="news-row"><span class="news-date">Jun 2022</span><span>Undergrad thesis selected for <a href="https://drive.google.com/file/d/1lsp4KJI3bi-MLdaYRGAPyexuQKRY4C93/view" target="_blank">poster</a> at <a href="https://sites.google.com/view/wicvcvpr2022/program/accepted-work" target="_blank">CVPR WiCV 2022</a>.</span></div>
-          <div class="news-row"><span class="news-date">Feb 2022</span><span>First paper accepted at <strong>IEEE TNSRE</strong> — <a href="https://ieeexplore.ieee.org/document/9709340" target="_blank">GCN for Physical Rehab Assessment</a>.</span></div>
+          <div class="news-row"><span class="news-date">May 2023</span><span>Paper accepted at <strong>IEEE Access</strong> — <a href="https://ieeexplore.ieee.org/abstract/document/10129187" target="_blank" rel="noopener">Data-Augmentation for Bangla-English Code-Mixed SA</a>.</span></div>
+          <div class="news-row"><span class="news-date">Nov 2022</span><span>Review paper accepted at <strong>IEEE TNSRE</strong> — <a href="https://ieeexplore.ieee.org/document/9936658" target="_blank" rel="noopener">AI-driven Stroke Rehabilitation</a>.</span></div>
+          <div class="news-row"><span class="news-date">Oct 2022</span><span><a href="https://drive.google.com/file/d/1gwUFh48ob7GjDLgdScuY4hMw_lvk2LPW/view" target="_blank" rel="noopener">IHABOT</a> placed 2nd at DU Research-Publication Fair.</span></div>
+          <div class="news-row"><span class="news-date">Aug 2022</span><span>Attended <a href="https://www.oxfordml.school/oxml2022" target="_blank" rel="noopener">OxML Summer School 2022</a>.</span></div>
+          <div class="news-row"><span class="news-date">Jun 2022</span><span>Undergrad thesis selected for <a href="https://drive.google.com/file/d/1lsp4KJI3bi-MLdaYRGAPyexuQKRY4C93/view" target="_blank" rel="noopener">poster</a> at <a href="https://sites.google.com/view/wicvcvpr2022/program/accepted-work" target="_blank" rel="noopener">CVPR WiCV 2022</a>.</span></div>
+          <div class="news-row"><span class="news-date">Feb 2022</span><span>First paper accepted at <strong>IEEE TNSRE</strong> — <a href="https://ieeexplore.ieee.org/document/9709340" target="_blank" rel="noopener">GCN for Physical Rehab Assessment</a>.</span></div>
         </div>
-
-        <!-- Latest posts -->
-        <h2 class="section-h mt-5">latest posts</h2>
-        <ul class="post-list">
-          <li><span class="post-date">Apr 2025</span> <a href="/blog/welcome.html">Welcome to my blog — what I'll be writing about</a></li>
-        </ul>
-        <a href="/blog/" class="see-all">see all posts →</a>
 
         <!-- Selected publications -->
         <h2 class="section-h mt-5">selected publications</h2>
         <div class="pub-mini">
           <div class="pub-mini-venue">Neurocomputing 2025</div>
-          <div><a href="https://www.sciencedirect.com/science/article/pii/S0925231225009361" target="_blank">ReKon3D: Relation-Knowledge Aware Multi-Modal Embedding and Contrastive GAN for Zero-Shot 3D Recognition</a></div>
+          <div><a href="https://www.sciencedirect.com/science/article/pii/S0925231225009361" target="_blank" rel="noopener">ReKon3D: Relation-Knowledge Aware Multi-Modal Embedding and Contrastive GAN for Zero-Shot 3D Recognition</a></div>
           <div class="pub-mini-authors"><strong>Md Fokhrul Islam</strong>, Sejuti Rahman, Shafin Rahman</div>
         </div>
         <div class="pub-mini">
           <div class="pub-mini-venue">IEEE TNSRE 2022</div>
-          <div><a href="https://ieeexplore.ieee.org/document/9709340" target="_blank">Graph Convolutional Networks for Assessment of Physical Rehabilitation Exercises</a></div>
+          <div><a href="https://ieeexplore.ieee.org/document/9709340" target="_blank" rel="noopener">Graph Convolutional Networks for Assessment of Physical Rehabilitation Exercises</a></div>
           <div class="pub-mini-authors">Swakshar Deb*, <strong>Md Fokhrul Islam*</strong>, Shafin Rahman, Sejuti Rahman</div>
         </div>
         <div class="pub-mini">
           <div class="pub-mini-venue">IEEE Access 2023</div>
-          <div><a href="https://ieeexplore.ieee.org/abstract/document/10129187" target="_blank">Data-Augmentation for Bangla-English Code-Mixed Sentiment Analysis</a></div>
+          <div><a href="https://ieeexplore.ieee.org/abstract/document/10129187" target="_blank" rel="noopener">Data-Augmentation for Bangla-English Code-Mixed Sentiment Analysis</a></div>
           <div class="pub-mini-authors">Mohammad Tareq, <strong>Md Fokhrul Islam</strong>, Swakshar Deb, Sejuti Rahman, Abdullah Al Mahmud</div>
         </div>
         <a href="/publications.html" class="see-all">see all publications →</a>
+
+        <!-- Latest posts -->
+        <h2 class="section-h mt-5">latest posts</h2>
+        <ul class="post-list">
+          <li><span class="post-date">Apr 2025</span> <a href="/blog/posts/welcome.html">Welcome to my blog — what I'll be writing about</a></li>
+        </ul>
+        <a href="/blog/" class="see-all">see all posts →</a>
 
       </div>
     </div>
@@ -133,12 +179,12 @@
   <footer>
     <div class="container">
       <div class="footer-social">
-        <a href="mailto:fokhrul.rmedu@gmail.com"><i class="fas fa-envelope"></i></a>
-        <a href="https://scholar.google.com/citations?user=bQjPde8AAAAJ&hl=en" target="_blank"><i class="ai ai-google-scholar"></i></a>
-        <a href="https://github.com/fokhruli" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://twitter.com/fokhrul_i" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="mailto:fokhrul.rmedu@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://scholar.google.com/citations?user=bQjPde8AAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar"><i class="ai ai-google-scholar"></i></a>
+        <a href="https://github.com/fokhruli" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://twitter.com/fokhrul_i" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
       </div>
-      <p class="footer-copy">&copy; 2025 Md Fokhrul Islam · Design inspired by <a href="https://github.com/alshedivat/al-folio" target="_blank">al-folio</a></p>
+      <p class="footer-copy">&copy; 2026 Md Fokhrul Islam · Design inspired by <a href="https://github.com/alshedivat/al-folio" target="_blank" rel="noopener">al-folio</a></p>
     </div>
   </footer>
 

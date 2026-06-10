@@ -4,7 +4,31 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Publications · Md Fokhrul Islam</title>
+  <meta name="description" content="Publications by Md Fokhrul Islam — research in zero-shot 3D recognition, graph neural networks, rehabilitation assessment, and multimodal learning.">
+  <meta name="author" content="Md Fokhrul Islam">
+  <link rel="canonical" href="https://fokhruli.github.io/publications.html">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Publications · Md Fokhrul Islam">
+  <meta property="og:description" content="Research in zero-shot 3D recognition, graph neural networks, rehabilitation assessment, and multimodal learning.">
+  <meta property="og:url" content="https://fokhruli.github.io/publications.html">
+  <meta property="og:image" content="https://fokhruli.github.io/images/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
   <link rel="icon" type="image/png" href="/images/icon-48x48.png">
+
+  <!-- Set theme before first paint to avoid a flash -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme') ||
+          (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.3/css/academicons.min.css">
@@ -24,11 +48,14 @@
       <div class="collapse navbar-collapse justify-content-end" id="navMenu">
         <ul class="navbar-nav align-items-center gap-1">
           <li class="nav-item"><a class="nav-link" href="/">about</a></li>
-          <li class="nav-item"><a class="nav-link" href="/blog/">blog</a></li>
           <li class="nav-item"><a class="nav-link active" href="/publications.html">publications</a></li>
-          <li class="nav-item"><a class="nav-link" href="/media.html">media coverage</a></li>
-          <li class="nav-item"><a class="nav-link" href="/talks.html">talk</a></li>
-          <li class="nav-item ms-2">
+          <li class="nav-item"><a class="nav-link" href="/talks.html">talks</a></li>
+          <li class="nav-item"><a class="nav-link" href="/blog/">blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="/media.html">media</a></li>
+          <li class="nav-item">
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode"><i class="fas fa-moon"></i></button>
+          </li>
+          <li class="nav-item">
             <button class="ctrlk-btn" id="search-trigger" aria-label="Search">
               <span class="ctrlk-key">ctrl</span><span class="ctrlk-key">k</span>
             </button>
@@ -41,7 +68,7 @@
   <main class="container py-5" style="max-width: 760px;">
     <h1 class="page-title">publications</h1>
     <p class="page-subtitle">
-      <a href="https://scholar.google.com/citations?user=bQjPde8AAAAJ&hl=en" target="_blank">
+      <a href="https://scholar.google.com/citations?user=bQjPde8AAAAJ&hl=en" target="_blank" rel="noopener">
         <i class="ai ai-google-scholar me-1"></i>Google Scholar
       </a>
       &nbsp;·&nbsp; * indicates equal contribution
@@ -53,13 +80,24 @@
       <div class="pub-body">
         <span class="pub-venue">Neurocomputing</span>
         <div class="pub-title">
-          <a href="https://www.sciencedirect.com/science/article/pii/S0925231225009361" target="_blank" class="text-dark">
+          <a href="https://www.sciencedirect.com/science/article/pii/S0925231225009361" target="_blank" rel="noopener">
             ReKon3D: Relation-Knowledge Aware Multi-Modal Embedding and Contrastive GAN for Zero-Shot 3D Recognition
           </a>
         </div>
         <div class="pub-authors"><strong>Md Fokhrul Islam</strong>, Sejuti Rahman, Shafin Rahman</div>
         <div class="pub-links">
-          <a class="pub-btn" href="https://www.sciencedirect.com/science/article/pii/S0925231225009361" target="_blank"><i class="fas fa-file-pdf me-1"></i>Paper</a>
+          <a class="pub-btn" href="https://www.sciencedirect.com/science/article/pii/S0925231225009361" target="_blank" rel="noopener"><i class="fas fa-file-pdf me-1"></i>Paper</a>
+          <button class="pub-btn" data-bib="bib-rekon3d">Bib</button>
+        </div>
+        <div class="pub-bibtex-wrap" id="bib-rekon3d">
+          <button class="bib-copy">copy</button>
+          <pre class="pub-bibtex">@article{islam2025rekon3d,
+  title   = {ReKon3D: Relation-knowledge aware multi-modal embedding and contrastive {GAN} for zero-shot {3D} recognition},
+  author  = {Islam, Md Fokhrul and Rahman, Sejuti and Rahman, Shafin},
+  journal = {Neurocomputing},
+  year    = {2025},
+  publisher = {Elsevier}
+}</pre>
         </div>
       </div>
     </div>
@@ -70,13 +108,24 @@
       <div class="pub-body">
         <span class="pub-venue">Image &amp; Vision Computing</span>
         <div class="pub-title">
-          <a href="https://www.sciencedirect.com/science/article/abs/pii/S0262885624001537" target="_blank" class="text-dark">
+          <a href="https://www.sciencedirect.com/science/article/abs/pii/S0262885624001537" target="_blank" rel="noopener">
             VAE-GAN3D: Leveraging Image-Based Semantics for 3D Zero-Shot Recognition
           </a>
         </div>
         <div class="pub-authors">Md Tahmeed Abdullah, Sejuti Rahman, Shafin Rahman, <strong>Md Fokhrul Islam</strong></div>
         <div class="pub-links">
-          <a class="pub-btn" href="https://www.sciencedirect.com/science/article/abs/pii/S0262885624001537" target="_blank"><i class="fas fa-file-pdf me-1"></i>Paper</a>
+          <a class="pub-btn" href="https://www.sciencedirect.com/science/article/abs/pii/S0262885624001537" target="_blank" rel="noopener"><i class="fas fa-file-pdf me-1"></i>Paper</a>
+          <button class="pub-btn" data-bib="bib-vaegan3d">Bib</button>
+        </div>
+        <div class="pub-bibtex-wrap" id="bib-vaegan3d">
+          <button class="bib-copy">copy</button>
+          <pre class="pub-bibtex">@article{abdullah2024vaegan3d,
+  title   = {VAE-GAN3D: Leveraging image-based semantics for {3D} zero-shot recognition},
+  author  = {Abdullah, Md Tahmeed and Rahman, Sejuti and Rahman, Shafin and Islam, Md Fokhrul},
+  journal = {Image and Vision Computing},
+  year    = {2024},
+  publisher = {Elsevier}
+}</pre>
         </div>
       </div>
     </div>
@@ -87,15 +136,26 @@
       <div class="pub-body">
         <span class="pub-venue">IEEE Access</span>
         <div class="pub-title">
-          <a href="https://ieeexplore.ieee.org/abstract/document/10129187" target="_blank" class="text-dark">
+          <a href="https://ieeexplore.ieee.org/abstract/document/10129187" target="_blank" rel="noopener">
             Data-Augmentation for Bangla-English Code-Mixed Sentiment Analysis: Enhancing Cross-Linguistic Contextual Understanding
           </a>
         </div>
         <div class="pub-authors">Mohammad Tareq, <strong>Md Fokhrul Islam</strong>, Swakshar Deb, Sejuti Rahman, Abdullah Al Mahmud</div>
         <div class="pub-links">
-          <a class="pub-btn" href="https://ieeexplore.ieee.org/abstract/document/10129187" target="_blank"><i class="fas fa-file-pdf me-1"></i>Paper</a>
-          <a class="pub-btn" href="https://github.com/fokhruli/CM-seti-anlysis" target="_blank"><i class="fab fa-github me-1"></i>Code</a>
+          <a class="pub-btn" href="https://ieeexplore.ieee.org/abstract/document/10129187" target="_blank" rel="noopener"><i class="fas fa-file-pdf me-1"></i>Paper</a>
+          <a class="pub-btn" href="https://github.com/fokhruli/CM-seti-anlysis" target="_blank" rel="noopener"><i class="fab fa-github me-1"></i>Code</a>
           <a class="pub-btn" href="/CM-senti-analysis/">Project Page</a>
+          <button class="pub-btn" data-bib="bib-codemixed">Bib</button>
+        </div>
+        <div class="pub-bibtex-wrap" id="bib-codemixed">
+          <button class="bib-copy">copy</button>
+          <pre class="pub-bibtex">@article{tareq2023data,
+  title   = {Data-augmentation for {Bangla}-{English} code-mixed sentiment analysis: Enhancing cross linguistic contextual understanding},
+  author  = {Tareq, Mohammad and Islam, Md Fokhrul and Deb, Swakshar and Rahman, Sejuti and Mahmud, Abdullah Al},
+  journal = {IEEE Access},
+  year    = {2023},
+  publisher = {IEEE}
+}</pre>
         </div>
       </div>
     </div>
@@ -106,14 +166,25 @@
       <div class="pub-body">
         <span class="pub-venue">IEEE TNSRE</span>
         <div class="pub-title">
-          <a href="https://ieeexplore.ieee.org/document/9936658" target="_blank" class="text-dark">
+          <a href="https://ieeexplore.ieee.org/document/9936658" target="_blank" rel="noopener">
             AI-Driven Stroke Rehabilitation Systems and Assessment: A Systematic Review
           </a>
         </div>
         <div class="pub-authors">Sejuti Rahman, Sujan Sarker, A. K. M. Nadimul Haque, Monisha Mushtary Uttsha, <strong>Md Fokhrul Islam</strong>, Swakshar Deb</div>
         <div class="pub-links">
-          <a class="pub-btn" href="https://ieeexplore.ieee.org/document/9936658" target="_blank"><i class="fas fa-file-pdf me-1"></i>Paper</a>
-          <a class="pub-btn" href="https://github.com/fokhruli/stroke-rehab-benchmark" target="_blank"><i class="fab fa-github me-1"></i>Code</a>
+          <a class="pub-btn" href="https://ieeexplore.ieee.org/document/9936658" target="_blank" rel="noopener"><i class="fas fa-file-pdf me-1"></i>Paper</a>
+          <a class="pub-btn" href="https://github.com/fokhruli/stroke-rehab-benchmark" target="_blank" rel="noopener"><i class="fab fa-github me-1"></i>Code</a>
+          <button class="pub-btn" data-bib="bib-strokereview">Bib</button>
+        </div>
+        <div class="pub-bibtex-wrap" id="bib-strokereview">
+          <button class="bib-copy">copy</button>
+          <pre class="pub-bibtex">@article{rahman2022aidriven,
+  title   = {{AI}-driven stroke rehabilitation systems and assessment: A systematic review},
+  author  = {Rahman, Sejuti and Sarker, Sujan and Haque, A. K. M. Nadimul and Uttsha, Monisha Mushtary and Islam, Md Fokhrul and Deb, Swakshar},
+  journal = {IEEE Transactions on Neural Systems and Rehabilitation Engineering},
+  year    = {2022},
+  publisher = {IEEE}
+}</pre>
         </div>
       </div>
     </div>
@@ -124,7 +195,7 @@
       <div class="pub-body">
         <span class="pub-venue">IEEE TNSRE</span>
         <div class="pub-title">
-          <a href="https://ieeexplore.ieee.org/document/9709340" target="_blank" class="text-dark">
+          <a href="https://ieeexplore.ieee.org/document/9709340" target="_blank" rel="noopener">
             Graph Convolutional Networks for Assessment of Physical Rehabilitation Exercises
           </a>
         </div>
@@ -132,10 +203,23 @@
           Swakshar Deb<sup>*</sup>, <strong>Md Fokhrul Islam<sup>*</sup></strong>, Shafin Rahman, Sejuti Rahman
         </div>
         <div class="pub-links">
-          <a class="pub-btn" href="https://ieeexplore.ieee.org/document/9709340" target="_blank"><i class="fas fa-file-pdf me-1"></i>Paper</a>
-          <a class="pub-btn" href="https://github.com/fokhruli/STGCN-rehab" target="_blank"><i class="fab fa-github me-1"></i>Code</a>
-          <a class="pub-btn" href="https://youtu.be/ONqMG7izSA0" target="_blank"><i class="fas fa-video me-1"></i>Demo</a>
+          <a class="pub-btn" href="https://ieeexplore.ieee.org/document/9709340" target="_blank" rel="noopener"><i class="fas fa-file-pdf me-1"></i>Paper</a>
+          <a class="pub-btn" href="https://github.com/fokhruli/STGCN-rehab" target="_blank" rel="noopener"><i class="fab fa-github me-1"></i>Code</a>
+          <a class="pub-btn" href="https://youtu.be/ONqMG7izSA0" target="_blank" rel="noopener"><i class="fas fa-video me-1"></i>Demo</a>
           <a class="pub-btn" href="/STGCN-rehab/">Project Page</a>
+          <button class="pub-btn" data-bib="bib-stgcn">Bib</button>
+        </div>
+        <div class="pub-bibtex-wrap" id="bib-stgcn">
+          <button class="bib-copy">copy</button>
+          <pre class="pub-bibtex">@article{deb2022graph,
+  title   = {Graph convolutional networks for assessment of physical rehabilitation exercises},
+  author  = {Deb, Swakshar and Islam, Md Fokhrul and Rahman, Shafin and Rahman, Sejuti},
+  journal = {IEEE Transactions on Neural Systems and Rehabilitation Engineering},
+  volume  = {30},
+  pages   = {410--419},
+  year    = {2022},
+  publisher = {IEEE}
+}</pre>
         </div>
       </div>
     </div>
@@ -145,12 +229,12 @@
   <footer>
     <div class="container">
       <div class="footer-social">
-        <a href="mailto:fokhrul.rmedu@gmail.com"><i class="fas fa-envelope"></i></a>
-        <a href="https://scholar.google.com/citations?user=bQjPde8AAAAJ&hl=en" target="_blank"><i class="ai ai-google-scholar"></i></a>
-        <a href="https://github.com/fokhruli" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://twitter.com/fokhrul_i" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="mailto:fokhrul.rmedu@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://scholar.google.com/citations?user=bQjPde8AAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar"><i class="ai ai-google-scholar"></i></a>
+        <a href="https://github.com/fokhruli" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://twitter.com/fokhrul_i" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
       </div>
-      <p class="footer-copy">&copy; 2025 Md Fokhrul Islam · Design inspired by <a href="https://github.com/alshedivat/al-folio" target="_blank">al-folio</a></p>
+      <p class="footer-copy">&copy; 2026 Md Fokhrul Islam · Design inspired by <a href="https://github.com/alshedivat/al-folio" target="_blank" rel="noopener">al-folio</a></p>
     </div>
   </footer>
 

@@ -3,9 +3,34 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- CHANGE: update title -->
+  <!-- CHANGE: update title, description, canonical/og URLs, and published date -->
   <title>Post Title · Md Fokhrul Islam</title>
+  <meta name="description" content="One-sentence summary of the post.">
+  <meta name="author" content="Md Fokhrul Islam">
+  <link rel="canonical" href="https://fokhruli.github.io/blog/posts/FILENAME.html">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Post Title Goes Here">
+  <meta property="og:description" content="One-sentence summary of the post.">
+  <meta property="og:url" content="https://fokhruli.github.io/blog/posts/FILENAME.html">
+  <meta property="og:image" content="https://fokhruli.github.io/images/og.jpg">
+  <meta property="article:published_time" content="YYYY-MM-DD">
+  <meta name="twitter:card" content="summary_large_image">
+
   <link rel="icon" type="image/png" href="/images/icon-48x48.png">
+
+  <!-- Set theme before first paint to avoid a flash -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme') ||
+          (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.3/css/academicons.min.css">
@@ -25,11 +50,14 @@
       <div class="collapse navbar-collapse justify-content-end" id="navMenu">
         <ul class="navbar-nav align-items-center gap-1">
           <li class="nav-item"><a class="nav-link" href="/">about</a></li>
-          <li class="nav-item"><a class="nav-link active" href="/blog/">blog</a></li>
           <li class="nav-item"><a class="nav-link" href="/publications.html">publications</a></li>
-          <li class="nav-item"><a class="nav-link" href="/media.html">media coverage</a></li>
-          <li class="nav-item"><a class="nav-link" href="/talks.html">talk</a></li>
-          <li class="nav-item ms-2">
+          <li class="nav-item"><a class="nav-link" href="/talks.html">talks</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/blog/">blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="/media.html">media</a></li>
+          <li class="nav-item">
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode"><i class="fas fa-moon"></i></button>
+          </li>
+          <li class="nav-item">
             <button class="ctrlk-btn" id="search-trigger" aria-label="Search">
               <span class="ctrlk-key">ctrl</span><span class="ctrlk-key">k</span>
             </button>
@@ -83,12 +111,12 @@
   <footer>
     <div class="container">
       <div class="footer-social">
-        <a href="mailto:fokhrul.rmedu@gmail.com"><i class="fas fa-envelope"></i></a>
-        <a href="https://scholar.google.com/citations?user=bQjPde8AAAAJ&hl=en" target="_blank"><i class="ai ai-google-scholar"></i></a>
-        <a href="https://github.com/fokhruli" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://twitter.com/fokhrul_i" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="mailto:fokhrul.rmedu@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://scholar.google.com/citations?user=bQjPde8AAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar"><i class="ai ai-google-scholar"></i></a>
+        <a href="https://github.com/fokhruli" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://twitter.com/fokhrul_i" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
       </div>
-      <p class="footer-copy">&copy; 2025 Md Fokhrul Islam · Design inspired by <a href="https://github.com/alshedivat/al-folio" target="_blank">al-folio</a></p>
+      <p class="footer-copy">&copy; 2026 Md Fokhrul Islam · Design inspired by <a href="https://github.com/alshedivat/al-folio" target="_blank" rel="noopener">al-folio</a></p>
     </div>
   </footer>
 

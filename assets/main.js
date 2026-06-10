@@ -2,6 +2,29 @@
    main.js — shared across all pages
    ════════════════════════════════════════════════════════════════════ */
 
+/* ── Theme toggle ────────────────────────────────────────────────────
+   The initial theme is set by a tiny inline script in each page's <head>
+   (before CSS paints) to avoid a flash. This handles the toggle button. */
+(function () {
+  const btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  const icon = btn.querySelector('i');
+
+  function syncIcon() {
+    const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+    if (icon) icon.className = dark ? 'fas fa-sun' : 'fas fa-moon';
+  }
+
+  btn.addEventListener('click', () => {
+    const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) { /* private mode */ }
+    syncIcon();
+  });
+
+  syncIcon();
+})();
+
 /* ── Scroll progress bar ──────────────────────────────────────────── */
 (function () {
   const bar = document.getElementById('progress-bar');
@@ -15,14 +38,38 @@
   updateBar();
 })();
 
-/* ── Search data ─────────────────────────────────────────────────── */
+/* ── BibTeX toggle + copy (publications page) ────────────────────── */
+(function () {
+  document.querySelectorAll('[data-bib]').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      const wrap = document.getElementById(btn.dataset.bib);
+      if (wrap) wrap.classList.toggle('open');
+    });
+  });
+
+  document.querySelectorAll('.bib-copy').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const pre = btn.parentElement.querySelector('.pub-bibtex');
+      if (!pre) return;
+      try {
+        await navigator.clipboard.writeText(pre.textContent.trim());
+        btn.textContent = 'copied!';
+        setTimeout(() => { btn.textContent = 'copy'; }, 1200);
+      } catch (e) { /* clipboard unavailable */ }
+    });
+  });
+})();
+
+/* ── Search data ─────────────────────────────────────────────────────
+   Add an entry here whenever you add a page, publication, or project. */
 const SEARCH_DATA = [
   // Pages
   { title: 'About',           url: '/',                        icon: 'fa-user',        section: 'Pages' },
-  { title: 'Blog',            url: '/blog/',                   icon: 'fa-pen-nib',     section: 'Pages' },
   { title: 'Publications',    url: '/publications.html',       icon: 'fa-scroll',      section: 'Pages' },
-  { title: 'Media Coverage',  url: '/media.html',              icon: 'fa-newspaper',   section: 'Pages' },
   { title: 'Talks',           url: '/talks.html',              icon: 'fa-microphone',  section: 'Pages' },
+  { title: 'Blog',            url: '/blog/',                   icon: 'fa-pen-nib',     section: 'Pages' },
+  { title: 'Media Coverage',  url: '/media.html',              icon: 'fa-newspaper',   section: 'Pages' },
   { title: 'CV (PDF)',        url: '/files/cv.pdf',            icon: 'fa-file-pdf',    section: 'Pages' },
   // Publications
   { title: 'ReKon3D — Neurocomputing 2025',           url: 'https://www.sciencedirect.com/science/article/pii/S0925231225009361', icon: 'fa-file-alt', section: 'Publications' },
