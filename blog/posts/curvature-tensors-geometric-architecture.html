@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Curvature Tensors and the Geometric Architecture of Non-Euclidean Manifolds · Md Fokhrul Islam</title>
+  <meta name="description" content="A visual technical synthesis of connections, parallel transport, holonomy, the Riemann tensor, normal coordinates, Ricci curvature, and scalar curvature.">
+  <meta name="author" content="Md Fokhrul Islam">
+  <link rel="canonical" href="https://fokhruli.github.io/blog/posts/curvature-tensors-geometric-architecture.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Curvature Tensors and the Geometric Architecture of Non-Euclidean Manifolds">
+  <meta property="og:description" content="A visual technical synthesis of connections, holonomy, the Riemann tensor, normal coordinates, and curvature contractions.">
+  <meta property="og:url" content="https://fokhruli.github.io/blog/posts/curvature-tensors-geometric-architecture.html">
+  <meta property="og:image" content="https://fokhruli.github.io/images/og.jpg">
+  <meta property="article:published_time" content="2026-06-20">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/png" href="/images/icon-48x48.png">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme') ||
+          (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.3/css/academicons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+
+  <div id="progress-bar"></div>
+
+  <nav class="site-nav navbar navbar-expand-md sticky-top">
+    <div class="container">
+      <a class="navbar-brand brand" href="/">Md Fokhrul Islam</a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+        <ul class="navbar-nav align-items-center gap-1">
+          <li class="nav-item"><a class="nav-link" href="/">about</a></li>
+          <li class="nav-item"><a class="nav-link" href="/publications.html">publications</a></li>
+          <li class="nav-item"><a class="nav-link" href="/talks.html">talks</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/blog/">blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="/media.html">media</a></li>
+          <li class="nav-item">
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode"><i class="fas fa-moon"></i></button>
+          </li>
+          <li class="nav-item">
+            <button class="ctrlk-btn" id="search-trigger" aria-label="Search">
+              <span class="ctrlk-key">ctrl</span><span class="ctrlk-key">k</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-5 article-shell">
+    <a class="back-link" href="/blog/"><i class="fas fa-arrow-left me-1"></i> back to blog</a>
+
+    <article class="technical-post">
+      <header class="post-header post-hero">
+        <div class="post-kicker">Differential geometry · visual synthesis</div>
+        <h1>Curvature Tensors and the Geometric Architecture of Non-Euclidean Manifolds</h1>
+        <p class="post-dek">
+          How a rule for differentiating vector fields becomes a measurable theory of path dependence,
+          geodesic deviation, and local volume distortion.
+        </p>
+        <div class="post-meta">
+          Jun 20, 2026 &nbsp;·&nbsp; Md Fokhrul Islam
+          &nbsp;·&nbsp;
+          <span class="blog-tag">geometry</span>
+          <span class="blog-tag">manifolds</span>
+          <span class="blog-tag">tensors</span>
+        </div>
+      </header>
+
+      <div class="post-content">
+        <div class="article-prose">
+          <p class="lead">
+            Curvature is a second-order obstruction to making a manifold look Euclidean. Its mathematical
+            architecture is built in layers: a connection differentiates tangent fields, parallel transport
+            exposes path dependence, the Riemann tensor captures the infinitesimal failure of transport to
+            close, and contractions of that tensor govern local volume.
+          </p>
+        </div>
+
+        <figure class="concept-figure architecture-figure">
+          <div class="architecture-flow" aria-label="Conceptual flow from connection to local geometry">
+            <div class="architecture-node">
+              <span class="node-number">01</span>
+              <strong>Connection</strong>
+              <small>differentiate fields</small>
+            </div>
+            <span class="flow-arrow" aria-hidden="true">→</span>
+            <div class="architecture-node">
+              <span class="node-number">02</span>
+              <strong>Transport</strong>
+              <small>compare along curves</small>
+            </div>
+            <span class="flow-arrow" aria-hidden="true">→</span>
+            <div class="architecture-node">
+              <span class="node-number">03</span>
+              <strong>Holonomy</strong>
+              <small>detect path dependence</small>
+            </div>
+            <span class="flow-arrow" aria-hidden="true">→</span>
+            <div class="architecture-node">
+              <span class="node-number">04</span>
+              <strong>Riemann tensor</strong>
+              <small>localize the defect</small>
+            </div>
+            <span class="flow-arrow" aria-hidden="true">→</span>
+            <div class="architecture-node">
+              <span class="node-number">05</span>
+              <strong>Contractions</strong>
+              <small>measure volume change</small>
+            </div>
+          </div>
+          <figcaption>
+            The logical pipeline: differentiation produces transport; infinitesimal transport defects produce curvature;
+            traces of curvature control local volume.
+          </figcaption>
+        </figure>
+
+        <nav class="article-map" aria-label="Article sections">
+          <span>Reading map</span>
+          <a href="#connections">Connections</a>
+          <a href="#holonomy">Holonomy</a>
+          <a href="#riemann">Riemann tensor</a>
+          <a href="#normal-coordinates">Normal coordinates</a>
+          <a href="#contractions">Ricci &amp; scalar curvature</a>
+        </nav>
+
+        <section id="connections" class="article-section">
+          <div class="article-prose">
+            <div class="section-number">1</div>
+            <h2>The foundational calculus of connections</h2>
+
+            <p>
+              A smooth manifold has tangent spaces \(T_pM\), but no canonical rule for identifying vectors
+              in \(T_pM\) with vectors in \(T_qM\). An affine connection supplies the missing differential
+              structure. It is a map
+            </p>
+
+            \[
+              \nabla:\mathfrak{X}(M)\times\mathfrak{X}(M)\longrightarrow\mathfrak{X}(M),
+              \qquad (U,W)\longmapsto\nabla_UW,
+            \]
+
+            <p>
+              satisfying \(C^\infty(M)\)-linearity in its directional argument, \(\mathbb{R}\)-linearity in
+              the differentiated field, and the Leibniz rule:
+            </p>
+
+            \[
+            \begin{aligned}
+              \nabla_{fU+hV}W &amp;= f\nabla_UW+h\nabla_VW,\\
+              \nabla_V(aW_1+bW_2) &amp;= a\nabla_VW_1+b\nabla_VW_2,\\
+              \nabla_V(fW) &amp;= V(f)W+f\nabla_VW.
+            \end{aligned}
+            \]
+
+            <aside class="insight-card">
+              <span class="insight-label">Important distinction</span>
+              A connection does not identify two tangent spaces outright. It defines parallel transport
+              <em>along a chosen curve</em>; changing the curve can change the resulting identification.
+            </aside>
+
+            <p>
+              On a Riemannian manifold \((M,g)\), the Fundamental Theorem of Riemannian Geometry selects a
+              unique connection: the <strong>Levi-Civita connection</strong>. It is characterized by
+            </p>
+
+            <div class="definition-grid">
+              <div class="definition-card">
+                <span class="definition-symbol">\(T=0\)</span>
+                <h3>Torsion-free</h3>
+                <p>\(\nabla_UV-\nabla_VU=[U,V]\), so \(\Gamma^k_{ij}=\Gamma^k_{ji}\) in a coordinate frame.</p>
+              </div>
+              <div class="definition-card">
+                <span class="definition-symbol">\(\nabla g=0\)</span>
+                <h3>Metric-compatible</h3>
+                <p>Parallel transport preserves inner products, lengths, and angles along each curve.</p>
+              </div>
+            </div>
+
+            <p>
+              In local coordinates, these conditions determine the Christoffel symbols:
+            </p>
+
+            \[
+              \Gamma^k_{ij}
+              =\frac12 g^{k\ell}
+              \left(\partial_i g_{j\ell}+\partial_j g_{i\ell}-\partial_\ell g_{ij}\right).
+            \]
+
+            <p>
+              The symbols are not tensor components: they can be made zero at one point by choosing normal
+              coordinates. Their derivatives, however, cannot generally be removed at the same time. That
+              residual second-order information is curvature.
+            </p>
+          </div>
+        </section>
+
+        <section id="holonomy" class="article-section">
+          <div class="article-prose">
+            <div class="section-number">2</div>
+            <h2>Parallel transport and holonomy</h2>
+
+            <p>
+              Let \(\eta(t)\) be a smooth curve and let \(V(t)\in T_{\eta(t)}M\) be a vector field along it.
+              The field is parallel when
+            </p>
+
+            \[
+              \nabla_{\dot{\eta}}V=0.
+            \]
+
+            <p>Writing \(V=V^k\partial_k\) gives a linear first-order ODE:</p>
+
+            \[
+              \frac{dV^k}{dt}
+              +\Gamma^k_{ij}\bigl(\eta(t)\bigr)\,\dot{\eta}^{\,i}V^j=0.
+            \]
+
+            <p>
+              Existence and uniqueness of this ODE define a linear isomorphism
+              \(P_\eta:T_{\eta(0)}M\to T_{\eta(1)}M\). If \(\eta\) is a loop based at \(p\), then
+              \(P_\eta:T_pM\to T_pM\) is a holonomy transformation.
+            </p>
+          </div>
+
+          <figure class="concept-figure">
+            <svg class="geometry-diagram" viewBox="0 0 900 360" role="img" aria-labelledby="holonomy-title holonomy-desc">
+              <title id="holonomy-title">Parallel transport on a flat plane and a curved sphere</title>
+              <desc id="holonomy-desc">On the plane a vector returns unchanged around a contractible loop. On the sphere it returns rotated after transport around a geodesic triangle.</desc>
+              <defs>
+                <marker id="arrow-holonomy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" class="diagram-accent-fill"></path>
+                </marker>
+                <linearGradient id="sphere-gradient" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" class="diagram-gradient-start"></stop>
+                  <stop offset="100%" class="diagram-gradient-end"></stop>
+                </linearGradient>
+              </defs>
+
+              <g transform="translate(25 28)">
+                <text x="185" y="0" text-anchor="middle" class="diagram-panel-title">Flat plane</text>
+                <rect x="0" y="24" width="370" height="270" rx="18" class="diagram-panel"></rect>
+                <g class="diagram-grid">
+                  <path d="M45 24V294 M105 24V294 M165 24V294 M225 24V294 M285 24V294 M345 24V294"></path>
+                  <path d="M0 69H370 M0 114H370 M0 159H370 M0 204H370 M0 249H370"></path>
+                </g>
+                <path d="M90 230 L90 90 L275 90 L275 230 Z" class="diagram-loop" marker-mid="url(#arrow-holonomy)"></path>
+                <circle cx="90" cy="230" r="5" class="diagram-accent-fill"></circle>
+                <path d="M90 230 L90 178" class="diagram-vector" marker-end="url(#arrow-holonomy)"></path>
+                <path d="M105 230 L105 178" class="diagram-vector diagram-vector-final" marker-end="url(#arrow-holonomy)"></path>
+                <text x="127" y="187" class="diagram-label">same orientation</text>
+                <text x="185" y="325" text-anchor="middle" class="diagram-note">local holonomy = identity</text>
+              </g>
+
+              <g transform="translate(495 28)">
+                <text x="185" y="0" text-anchor="middle" class="diagram-panel-title">Curved surface</text>
+                <rect x="0" y="24" width="370" height="270" rx="18" class="diagram-panel"></rect>
+                <circle cx="185" cy="158" r="112" fill="url(#sphere-gradient)" class="diagram-sphere"></circle>
+                <ellipse cx="185" cy="158" rx="112" ry="38" class="diagram-latitude"></ellipse>
+                <path d="M185 46 C148 80 128 119 125 171" class="diagram-longitude"></path>
+                <path d="M185 46 C222 80 242 119 245 171" class="diagram-longitude"></path>
+                <path d="M185 46 C145 78 112 125 105 190 C151 210 218 211 266 187 Z" class="diagram-loop" marker-mid="url(#arrow-holonomy)"></path>
+                <circle cx="185" cy="46" r="5" class="diagram-accent-fill"></circle>
+                <path d="M185 46 L185 2" class="diagram-vector" marker-end="url(#arrow-holonomy)"></path>
+                <path d="M185 46 L225 27" class="diagram-vector diagram-vector-final" marker-end="url(#arrow-holonomy)"></path>
+                <path d="M185 15 A31 31 0 0 1 215 31" class="diagram-angle"></path>
+                <text x="226" y="17" class="diagram-label">rotation</text>
+                <text x="185" y="325" text-anchor="middle" class="diagram-note">curvature generates local holonomy</text>
+              </g>
+            </svg>
+            <figcaption>
+              Parallel transport around a small contractible loop returns a rotated vector when curvature is present.
+              The rotation is second order in the loop dimensions.
+            </figcaption>
+          </figure>
+
+          <div class="article-prose">
+            <div class="comparison-table-wrap">
+              <table class="comparison-table">
+                <thead>
+                  <tr>
+                    <th>Feature</th>
+                    <th>Euclidean space</th>
+                    <th>General Riemannian manifold</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Transport between points</td>
+                    <td>Path-independent</td>
+                    <td>Generally path-dependent</td>
+                  </tr>
+                  <tr>
+                    <td>Infinitesimal holonomy</td>
+                    <td>Identity</td>
+                    <td>Generated by curvature endomorphisms</td>
+                  </tr>
+                  <tr>
+                    <td>Connection coefficients</td>
+                    <td>Zero in global Cartesian coordinates</td>
+                    <td>Zero at one point in normal coordinates</td>
+                  </tr>
+                  <tr>
+                    <td>Local metric behavior</td>
+                    <td>Exactly constant</td>
+                    <td>Euclidean to first order; curved at second order</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <aside class="caveat-card">
+              <strong>Local versus global.</strong> Nontrivial holonomy around an arbitrary large loop does not by
+              itself prove nonzero local curvature: flat manifolds can have global holonomy caused by topology.
+              Curvature is detected by transport around infinitesimal contractible loops.
+            </aside>
+          </div>
+        </section>
+
+        <section id="riemann" class="article-section">
+          <div class="article-prose">
+            <div class="section-number">3</div>
+            <h2>The Riemann tensor: infinitesimal failure to close</h2>
+
+            <p>
+              Covariant derivatives need not commute. The Riemann curvature tensor records their commutator
+              after correcting for the noncommutativity of the vector fields themselves:
+            </p>
+
+            \[
+              R(U,V)W
+              =\nabla_U\nabla_VW-\nabla_V\nabla_UW-\nabla_{[U,V]}W.
+            \]
+
+            <p>
+              In a coordinate frame, where \([\partial_i,\partial_j]=0\), one common sign convention gives
+            </p>
+
+            \[
+              R^{\ell}{}_{kij}
+              =\partial_i\Gamma^{\ell}_{jk}
+              -\partial_j\Gamma^{\ell}_{ik}
+              +\Gamma^{m}_{jk}\Gamma^{\ell}_{im}
+              -\Gamma^{m}_{ik}\Gamma^{\ell}_{jm}.
+            \]
+
+            <aside class="notation-note">
+              Curvature sign and index order vary across texts. All formulas in this article use the convention
+              above; switching the definition of \(R\) reverses the signs of the corresponding expansion formulas.
+            </aside>
+          </div>
+
+          <figure class="concept-figure">
+            <svg class="geometry-diagram loop-diagram" viewBox="0 0 900 370" role="img" aria-labelledby="loop-title loop-desc">
+              <title id="loop-title">Curvature as the second-order defect around an infinitesimal loop</title>
+              <desc id="loop-desc">A vector transported around a small parallelogram spanned by su and rv returns with a difference proportional to sr times R of u v applied to w.</desc>
+              <defs>
+                <marker id="arrow-loop" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" class="diagram-accent-fill"></path>
+                </marker>
+                <marker id="arrow-loop-secondary" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" class="diagram-secondary-fill"></path>
+                </marker>
+              </defs>
+
+              <rect x="30" y="28" width="840" height="300" rx="20" class="diagram-panel"></rect>
+              <g transform="translate(95 52)">
+                <path d="M65 220 L315 220 L390 75 L140 75 Z" class="diagram-surface-patch"></path>
+                <path d="M65 220 L315 220 L390 75 L140 75 Z" class="diagram-loop" marker-mid="url(#arrow-loop)"></path>
+                <circle cx="65" cy="220" r="6" class="diagram-accent-fill"></circle>
+                <text x="43" y="245" class="diagram-label">p</text>
+                <path d="M65 220 L154 220" class="diagram-vector" marker-end="url(#arrow-loop)"></path>
+                <text x="100" y="247" class="diagram-label">s u</text>
+                <path d="M65 220 L100 151" class="diagram-vector" marker-end="url(#arrow-loop)"></path>
+                <text x="58" y="158" class="diagram-label">r v</text>
+
+                <path d="M65 220 L65 126" class="diagram-vector" marker-end="url(#arrow-loop)"></path>
+                <text x="42" y="125" class="diagram-label">w</text>
+                <path d="M65 220 L95 130" class="diagram-vector diagram-vector-final" marker-end="url(#arrow-loop-secondary)"></path>
+                <text x="105" y="134" class="diagram-label">P□w</text>
+                <path d="M66 142 A44 44 0 0 1 90 148" class="diagram-angle"></path>
+              </g>
+
+              <g transform="translate(555 75)">
+                <text x="115" y="0" text-anchor="middle" class="diagram-panel-title">Area-normalized defect</text>
+                <path d="M0 48 H230" class="diagram-divider"></path>
+                <text x="115" y="95" text-anchor="middle" class="diagram-formula">w − P□w</text>
+                <path d="M45 118 H185" class="diagram-formula-line"></path>
+                <text x="115" y="154" text-anchor="middle" class="diagram-formula">s r</text>
+                <path d="M42 190 H188" class="diagram-divider"></path>
+                <text x="115" y="235" text-anchor="middle" class="diagram-formula diagram-formula-accent">→ R(u,v)w</text>
+              </g>
+            </svg>
+            <figcaption>
+              For a sufficiently small loop with side vectors \(su\) and \(rv\),
+              \(P_{\square}w=w-sr\,R(u,v)w+\text{higher-order terms}\), up to orientation and sign convention.
+            </figcaption>
+          </figure>
+
+          <div class="article-prose">
+            <p>
+              Lower the output index with the metric and write
+              \(\mathrm{Rm}(U,V,X,Y)=g(R(U,V)X,Y)\). For the Levi-Civita connection, the tensor obeys:
+            </p>
+
+            <div class="symmetry-list">
+              <div><span>Antisymmetry</span>\(\mathrm{Rm}(U,V,X,Y)=-\mathrm{Rm}(V,U,X,Y)\)</div>
+              <div><span>Last-pair antisymmetry</span>\(\mathrm{Rm}(U,V,X,Y)=-\mathrm{Rm}(U,V,Y,X)\)</div>
+              <div><span>Pair symmetry</span>\(\mathrm{Rm}(U,V,X,Y)=\mathrm{Rm}(X,Y,U,V)\)</div>
+              <div><span>First Bianchi identity</span>\(R(U,V)W+R(V,W)U+R(W,U)V=0\)</div>
+            </div>
+
+            <p>
+              These identities sharply reduce the number of independent components. In dimension \(n\), an
+              algebraic curvature tensor has \(n^2(n^2-1)/12\) independent components: one in dimension two,
+              six in dimension three, and twenty in dimension four.
+            </p>
+          </div>
+        </section>
+
+        <section id="normal-coordinates" class="article-section">
+          <div class="article-prose">
+            <div class="section-number">4</div>
+            <h2>Geodesics, the exponential map, and normal coordinates</h2>
+
+            <p>
+              A geodesic is a curve whose velocity transports parallel to itself:
+            </p>
+
+            \[
+              \nabla_{\dot{\eta}}\dot{\eta}=0,
+              \qquad
+              \ddot{\eta}^{\,k}+\Gamma^k_{ij}\dot{\eta}^{\,i}\dot{\eta}^{\,j}=0.
+            \]
+
+            <p>
+              Given \(v\in T_pM\), let \(\gamma_v\) be the geodesic with
+              \(\gamma_v(0)=p\) and \(\dot{\gamma}_v(0)=v\). The exponential map is
+              \(\operatorname{Exp}_p(v)=\gamma_v(1)\), wherever this geodesic is defined.
+              Near the origin of \(T_pM\), it is a diffeomorphism onto a neighborhood of \(p\).
+            </p>
+          </div>
+
+          <figure class="concept-figure">
+            <svg class="geometry-diagram" viewBox="0 0 900 390" role="img" aria-labelledby="exp-title exp-desc">
+              <title id="exp-title">The exponential map from a tangent plane to a curved manifold</title>
+              <desc id="exp-desc">Straight radial lines in the tangent plane map to geodesics emanating from a point on the manifold.</desc>
+              <defs>
+                <marker id="arrow-exp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" class="diagram-accent-fill"></path>
+                </marker>
+                <linearGradient id="surface-gradient" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" class="diagram-gradient-start"></stop>
+                  <stop offset="100%" class="diagram-gradient-end"></stop>
+                </linearGradient>
+              </defs>
+
+              <rect x="28" y="28" width="844" height="310" rx="20" class="diagram-panel"></rect>
+
+              <g transform="translate(60 50)">
+                <text x="190" y="0" text-anchor="middle" class="diagram-panel-title">Tangent space TₚM</text>
+                <path d="M30 235 L118 78 L360 78 L275 235 Z" class="diagram-tangent-plane"></path>
+                <circle cx="194" cy="158" r="6" class="diagram-accent-fill"></circle>
+                <text x="181" y="181" class="diagram-label">0</text>
+                <path d="M194 158 L298 110" class="diagram-vector" marker-end="url(#arrow-exp)"></path>
+                <text x="302" y="104" class="diagram-label">v</text>
+                <path d="M194 158 L117 111" class="diagram-ray"></path>
+                <path d="M194 158 L104 198" class="diagram-ray"></path>
+                <path d="M194 158 L260 218" class="diagram-ray"></path>
+                <circle cx="194" cy="158" r="61" class="diagram-normal-ball"></circle>
+                <text x="190" y="277" text-anchor="middle" class="diagram-note">radial lines through 0</text>
+              </g>
+
+              <path d="M395 178 C438 122 461 122 502 178" class="diagram-map-arrow" marker-end="url(#arrow-exp)"></path>
+              <text x="450" y="111" text-anchor="middle" class="diagram-formula diagram-formula-accent">Expₚ</text>
+
+              <g transform="translate(510 50)">
+                <text x="175" y="0" text-anchor="middle" class="diagram-panel-title">Manifold M</text>
+                <path d="M12 229 C72 87 253 55 342 176 C287 274 105 290 12 229 Z" fill="url(#surface-gradient)" class="diagram-surface"></path>
+                <path d="M171 176 C229 148 274 123 312 84" class="diagram-geodesic" marker-end="url(#arrow-exp)"></path>
+                <path d="M171 176 C122 134 82 111 43 104" class="diagram-ray"></path>
+                <path d="M171 176 C116 201 89 230 72 255" class="diagram-ray"></path>
+                <path d="M171 176 C216 207 253 227 298 239" class="diagram-ray"></path>
+                <circle cx="171" cy="176" r="6" class="diagram-accent-fill"></circle>
+                <text x="153" y="197" class="diagram-label">p</text>
+                <text x="315" y="77" class="diagram-label">γᵥ(1)</text>
+                <text x="175" y="277" text-anchor="middle" class="diagram-note">radial lines become geodesics</text>
+              </g>
+            </svg>
+            <figcaption>
+              Normal coordinates use \(\operatorname{Exp}_p\) to transfer linear coordinates from \(T_pM\)
+              to the manifold. The Gauss lemma controls radial distances and orthogonality.
+            </figcaption>
+          </figure>
+
+          <div class="article-prose">
+            <p>Choose an orthonormal basis of \(T_pM\) and transport its linear coordinates through \(\operatorname{Exp}_p\). At the center \(p\), the resulting normal coordinates satisfy</p>
+
+            \[
+              g_{ij}(p)=\delta_{ij},
+              \qquad
+              \partial_k g_{ij}(p)=0,
+              \qquad
+              \Gamma^k_{ij}(p)=0.
+            \]
+
+            <p>
+              Thus every Riemannian metric is Euclidean to first order at a point. Curvature appears in the
+              quadratic term of its Taylor expansion:
+            </p>
+
+            \[
+              g_{ij}(x)
+              =\delta_{ij}
+              -\frac13 R_{ikj\ell}(p)x^kx^\ell
+              +O(|x|^3).
+            \]
+
+            <div class="order-strip" aria-label="Orders of local geometric approximation">
+              <div><span>0th order</span><strong>\(g_{ij}=\delta_{ij}\)</strong><small>Euclidean inner product</small></div>
+              <div><span>1st order</span><strong>\(\partial_k g_{ij}=0\)</strong><small>no linear distortion</small></div>
+              <div class="order-curved"><span>2nd order</span><strong>\(R_{ikj\ell}\)</strong><small>intrinsic curvature appears</small></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="contractions" class="article-section">
+          <div class="article-prose">
+            <div class="section-number">5</div>
+            <h2>Ricci and scalar curvature as volume diagnostics</h2>
+
+            <p>
+              The Riemann tensor contains directional curvature information. Its traces compress that
+              information into quantities tied directly to local volume. The Ricci tensor and scalar
+              curvature are
+            </p>
+
+            \[
+              \operatorname{Ric}_{ij}=R^k{}_{ikj},
+              \qquad
+              S=g^{ij}\operatorname{Ric}_{ij}.
+            \]
+
+            <p>
+              In normal coordinates, the Riemannian volume density has the expansion
+            </p>
+
+            \[
+              dV_g
+              =
+              \left(
+                1-\frac16\operatorname{Ric}_{k\ell}(p)x^kx^\ell+O(|x|^3)
+              \right)
+              dx^1\cdots dx^n.
+            \]
+
+            <p>
+              Ricci curvature therefore measures the leading directional distortion of volume. Averaging
+              over directions gives the small-ball expansion
+            </p>
+
+            \[
+              \frac{\operatorname{Vol}_g(B_g(p,r))}
+                   {\omega_n r^n}
+              =
+              1-\frac{S(p)}{6(n+2)}r^2+O(r^4),
+            \]
+
+            <p>
+              where \(\omega_n r^n\) is the Euclidean volume of an \(n\)-ball of radius \(r\).
+              Positive scalar curvature makes sufficiently small geodesic balls smaller than their Euclidean
+              counterparts; negative scalar curvature makes them larger.
+            </p>
+          </div>
+
+          <figure class="concept-figure">
+            <svg class="geometry-diagram" viewBox="0 0 900 390" role="img" aria-labelledby="volume-title volume-desc">
+              <title id="volume-title">Small geodesic ball volume under negative, zero, and positive scalar curvature</title>
+              <desc id="volume-desc">For the same small radius, negative scalar curvature gives more volume than Euclidean space, while positive scalar curvature gives less.</desc>
+              <defs>
+                <radialGradient id="ball-negative" cx="35%" cy="30%" r="70%">
+                  <stop offset="0%" class="diagram-negative-start"></stop>
+                  <stop offset="100%" class="diagram-negative-end"></stop>
+                </radialGradient>
+                <radialGradient id="ball-flat" cx="35%" cy="30%" r="70%">
+                  <stop offset="0%" class="diagram-flat-start"></stop>
+                  <stop offset="100%" class="diagram-flat-end"></stop>
+                </radialGradient>
+                <radialGradient id="ball-positive" cx="35%" cy="30%" r="70%">
+                  <stop offset="0%" class="diagram-positive-start"></stop>
+                  <stop offset="100%" class="diagram-positive-end"></stop>
+                </radialGradient>
+              </defs>
+
+              <rect x="28" y="28" width="844" height="310" rx="20" class="diagram-panel"></rect>
+              <path d="M300 68V302 M600 68V302" class="diagram-divider"></path>
+
+              <g transform="translate(55 55)">
+                <text x="115" y="0" text-anchor="middle" class="diagram-panel-title">S(p) &lt; 0</text>
+                <circle cx="115" cy="125" r="92" fill="url(#ball-negative)" class="diagram-ball"></circle>
+                <circle cx="115" cy="125" r="70" class="diagram-euclidean-reference"></circle>
+                <path d="M115 125 L185 125" class="diagram-radius"></path>
+                <text x="145" y="116" class="diagram-label">r</text>
+                <text x="115" y="250" text-anchor="middle" class="diagram-note">more volume</text>
+                <text x="115" y="276" text-anchor="middle" class="diagram-volume-sign">&gt; ωₙrⁿ</text>
+              </g>
+
+              <g transform="translate(355 55)">
+                <text x="95" y="0" text-anchor="middle" class="diagram-panel-title">S(p) = 0</text>
+                <circle cx="95" cy="125" r="70" fill="url(#ball-flat)" class="diagram-ball"></circle>
+                <circle cx="95" cy="125" r="70" class="diagram-euclidean-reference"></circle>
+                <path d="M95 125 L165 125" class="diagram-radius"></path>
+                <text x="125" y="116" class="diagram-label">r</text>
+                <text x="95" y="250" text-anchor="middle" class="diagram-note">Euclidean leading term</text>
+                <text x="95" y="276" text-anchor="middle" class="diagram-volume-sign">= ωₙrⁿ</text>
+              </g>
+
+              <g transform="translate(655 55)">
+                <text x="90" y="0" text-anchor="middle" class="diagram-panel-title">S(p) &gt; 0</text>
+                <circle cx="90" cy="125" r="53" fill="url(#ball-positive)" class="diagram-ball"></circle>
+                <circle cx="90" cy="125" r="70" class="diagram-euclidean-reference"></circle>
+                <path d="M90 125 L160 125" class="diagram-radius"></path>
+                <text x="120" y="116" class="diagram-label">r</text>
+                <text x="90" y="250" text-anchor="middle" class="diagram-note">less volume</text>
+                <text x="90" y="276" text-anchor="middle" class="diagram-volume-sign">&lt; ωₙrⁿ</text>
+              </g>
+            </svg>
+            <figcaption>
+              The dashed circle is the Euclidean reference. The picture encodes the sign of the leading
+              \(r^2\) correction, not an exact finite-radius comparison.
+            </figcaption>
+          </figure>
+
+          <div class="article-prose">
+            <h3>A careful link to gravitation</h3>
+            <p>
+              General Relativity uses a <em>Lorentzian</em> spacetime metric rather than a Riemannian one,
+              but the same curvature machinery applies with signature changes. Einstein's equation relates
+              the Einstein tensor \(G=\operatorname{Ric}-\tfrac12 Sg\) to stress-energy. Ricci curvature
+              captures the part of spacetime curvature directly constrained by local matter-energy; the Weyl
+              tensor carries the trace-free tidal curvature that can remain nonzero even in vacuum.
+            </p>
+          </div>
+        </section>
+
+        <section class="article-section conclusion-section">
+          <div class="article-prose">
+            <div class="section-number">6</div>
+            <h2>The cohesion of the architecture</h2>
+
+            <p>
+              The central idea can be read in either direction. Starting from calculus, a connection defines
+              transport, transport around infinitesimal loops defines curvature, and curvature contractions
+              predict metric and volume defects. Starting from geometry, measured deviations in angles,
+              geodesics, or small-ball volumes reveal the tensorial obstruction to Euclidean structure.
+            </p>
+
+            <div class="takeaway-card">
+              <span class="takeaway-kicker">The compact synthesis</span>
+              <p>
+                A manifold is locally Euclidean at zeroth and first order. The Riemann tensor is the
+                irreducible second-order remainder, while Ricci and scalar curvature are the traces through
+                which that remainder becomes visible in local volume.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-social">
+        <a href="mailto:fokhrul.rmedu@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://scholar.google.com/citations?user=bQjPde8AAAAJ&amp;hl=en" target="_blank" rel="noopener" aria-label="Google Scholar"><i class="ai ai-google-scholar"></i></a>
+        <a href="https://github.com/fokhruli" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://twitter.com/fokhrul_i" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      </div>
+      <p class="footer-copy">&copy; 2026 Md Fokhrul Islam · Design inspired by <a href="https://github.com/alshedivat/al-folio" target="_blank" rel="noopener">al-folio</a></p>
+    </div>
+  </footer>
+
+  <div id="search-overlay" role="dialog" aria-modal="true" aria-label="Search">
+    <div id="search-box">
+      <input id="search-input" type="text" placeholder="Search pages, publications…" autocomplete="off" spellcheck="false">
+      <ul id="search-results"></ul>
+      <div id="search-hint"><kbd>↑↓</kbd> navigate &nbsp; <kbd>↵</kbd> open &nbsp; <kbd>esc</kbd> close</div>
+    </div>
+  </div>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/main.js"></script>
+  <script>
+    window.addEventListener('load', function () {
+      if (!window.location.hash) return;
+      window.setTimeout(function () {
+        var target = document.querySelector(window.location.hash);
+        if (target) target.scrollIntoView();
+      }, 600);
+    });
+  </script>
+</body>
+</html>

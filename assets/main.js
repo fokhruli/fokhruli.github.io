@@ -71,6 +71,9 @@ const SEARCH_DATA = [
   { title: 'Blog',            url: '/blog/',                   icon: 'fa-pen-nib',     section: 'Pages' },
   { title: 'Media Coverage',  url: '/media.html',              icon: 'fa-newspaper',   section: 'Pages' },
   { title: 'CV (PDF)',        url: '/files/cv.pdf',            icon: 'fa-file-pdf',    section: 'Pages' },
+  // Blog posts
+  { title: 'Curvature Tensors and the Geometric Architecture of Non-Euclidean Manifolds', url: '/blog/posts/curvature-tensors-geometric-architecture.html', icon: 'fa-pen-nib', section: 'Blog' },
+  { title: 'Welcome to my blog', url: '/blog/posts/welcome.html', icon: 'fa-pen-nib', section: 'Blog' },
   // Publications
   { title: 'ReKon3D — Neurocomputing 2025',           url: 'https://www.sciencedirect.com/science/article/pii/S0925231225009361', icon: 'fa-file-alt', section: 'Publications' },
   { title: 'VAE-GAN3D — Image & Vision Computing 2024', url: 'https://www.sciencedirect.com/science/article/abs/pii/S0262885624001537', icon: 'fa-file-alt', section: 'Publications' },

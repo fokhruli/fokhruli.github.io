@@ -8,5 +8,12 @@
     <language>en-us</language>
     <managingEditor>fokhrul.rmedu@gmail.com (Md Fokhrul Islam)</managingEditor>
     <webMaster>fokhrul.rmedu@gmail.com (Md Fokhrul Islam)</webMaster>
+    <item>
+      <title>Curvature Tensors and the Geometric Architecture of Non-Euclidean Manifolds</title>
+      <link>https://fokhruli.github.io/blog/posts/curvature-tensors-geometric-architecture.html</link>
+      <guid isPermaLink="true">https://fokhruli.github.io/blog/posts/curvature-tensors-geometric-architecture.html</guid>
+      <pubDate>Sat, 20 Jun 2026 00:00:00 -0400</pubDate>
+      <description>A visual technical synthesis of connections, parallel transport, holonomy, the Riemann tensor, normal coordinates, and local volume distortion.</description>
+    </item>
   </channel>
 </rss>

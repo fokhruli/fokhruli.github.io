@@ -26,6 +26,13 @@
   </url>
 
   <url>
+    <loc>https://fokhruli.github.io/blog/posts/curvature-tensors-geometric-architecture.html</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
     <loc>https://fokhruli.github.io/talks.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
