@@ -1,0 +1,27 @@
+JEPA Atlas local verification — 26 September 2026 review edition
+
+22 local checks passed:
+- Standard-library data validation
+- JSON Schema validation
+- Duplicate ID rejection
+- Missing result protocol rejection
+- Source/ID mismatch rejection
+- Dangling graph reference rejection
+- Documented relation without evidence rejection
+- Missing uncertainty-field rejection
+- Desktop overview rendering
+- All 19 library records rendering
+- Technical keyword search
+- Paper reader: mechanism and numeric evidence
+- Keyboard dismissal
+- Side-by-side comparison with protocols
+- Graph focusing and zoom
+- Four reading paths
+- Ten-concept guide
+- JSON and Markdown downloads
+- Direct paper deep links
+- Mobile overview/library/reader without horizontal page overflow
+- Standalone offline viewer and graph
+- No browser JavaScript exceptions
+
+Browser checks used Chromium with the standalone HTML loaded in memory via Playwright set_content. They did not test a network deployment. Local HTTP navigation was unavailable in the test environment. Node syntax checking also passed. These are software/data-structure tests; scientific claims and experiments were not independently reproduced. GitHub commit status and the live Pages URL require separate verification.
